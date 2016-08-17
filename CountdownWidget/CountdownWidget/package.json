@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jasmine": "^1.0.3",
+    "grunt-exec": "^1.0.0",
+    "grunt-typings": "^0.1.5",
+    "grunt-typescript": "^0.8.0",
+    "jasmine": "^2.4.1",
+    "jquery": "^3.1.0",
+    "moment": "^2.14.1",
+    "moment-timezone": "^0.5.4",
+    "requirejs": "^2.2.0",
+    "spectrum-colorpicker": "^1.8.0",
+    "tfx-cli": "^0.3.22",
+    "typings": "^1.3.1",
+    "vset": "^0.4.24",
+    "vss-web-extension-sdk": "^1.101.0"
+  },
+  "name": "countdown-widget",
+  "private": true,
+  "version": "0.0.0"
+}

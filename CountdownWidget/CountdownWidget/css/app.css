@@ -1,0 +1,61 @@
+﻿/*Tile*/
+.countdown {
+    padding: 14px;
+    background-color: #F1F2F2;
+}
+
+.container {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+
+.title {
+    margin-top: -5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    min-height: 21px;
+}
+
+.header {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.countdown-number {
+    margin: 10px 0 10px 0;
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 72px;
+}
+
+.error-text {
+    font-size: 16px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+/*Configuration pane*/
+.config-label {
+    margin-right: 20px;
+}
+
+.background-picker {
+    margin-top: 10px;
+}
+
+.timezone-selector {
+    margin: 20px 0 10px 40px;
+    width: 280px;
+}
+
+.datetimepicker {
+    width: 280px;
+    margin-left: 115px;
+}
+
+.combo-drop-popup {
+    top: -50px;
+}

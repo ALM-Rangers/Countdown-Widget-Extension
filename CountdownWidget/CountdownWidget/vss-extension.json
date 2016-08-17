@@ -1,0 +1,144 @@
+{
+  "manifestVersion": 1,
+  "id": "CountdownWidget",
+  "version": "0.0.0",
+  "publisher": "",
+  "name": "Countdown Widget",
+  "description": "Counts down to a configurable moment in time.",
+  "public": false,
+  "icons": {
+    "default": "img/logo.png"
+  },
+  "categories": [
+    "Plan and track"
+  ],
+  "tags": [
+    "work",
+    "count down timer"
+  ],
+  "content": {
+    "details": {
+      "path": "overview.md"
+    },
+    "license": {
+      "path": "marketplace/mp_terms.md"
+    }
+  },
+  "links": {
+    "support": { "uri": "http://aka.ms/vsarcontact" }
+  },
+  "branding": {
+    "color": "rgb(51,65,133)",
+    "theme": "dark"
+  },
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "CountdownWidget",
+      "type": "ms.vss-dashboards-web.widget",
+      "targets": [
+        "ms.vss-dashboards-web.widget-catalog",
+        ".CountdownWidget-Configuration"
+      ],
+      "properties": {
+        "name": "Countdown Widget",
+        "description": "Counts down to a configurable moment in time.",
+        "previewImageUrl": "img/Preview-Full.png",
+        "uri": "countdown.html",
+        "isNameConfigurable": true,
+        "supportedSizes": [
+          {
+            "rowSpan": 1,
+            "columnSpan": 1
+          }
+        ],
+        "supportedScopes": [ "project_team" ]
+      }
+    },
+    {
+      "id": "CountdownWidget-Configuration",
+      "type": "ms.vss-dashboards-web.widget-configuration",
+      "targets": [
+        "ms.vss-dashboards-web.widget-configuration"
+      ],
+      "properties": {
+        "name": "Countdown Widget Configuration",
+        "description": "Configures the Countdown widget.",
+        "uri": "countdownconfiguration.html"
+      }
+    },
+    {
+      "id": "SprintEndCountdownWidget",
+      "type": "ms.vss-dashboards-web.widget",
+      "targets": [
+        "ms.vss-dashboards-web.widget-catalog",
+        ".SprintEndCountdownWidget-Configuration"
+      ],
+      "properties": {
+        "name": "Sprint End Countdown Widget",
+        "description": "Counts down to the end of the current sprint.",
+        "previewImageUrl": "img/Preview-Sprint.png",
+        "uri": "countdown.html",
+        "isNameConfigurable": true,
+        "supportedSizes": [
+          {
+            "rowSpan": 1,
+            "columnSpan": 1
+          }
+        ],
+        "supportedScopes": [ "project_team" ]
+      }
+    },
+    {
+      "id": "SprintEndCountdownWidget-Configuration",
+      "type": "ms.vss-dashboards-web.widget-configuration",
+      "targets": [ "ms.vss-dashboards-web.widget-configuration" ],
+      "properties": {
+        "name": "Sprint End Countdown Widget Configuration",
+        "description": "Configures the Countdown widget.",
+        "uri": "countdownconfiguration.html"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "countdown.html",
+      "addressable": true
+    },
+    {
+      "path": "countdownconfiguration.html",
+      "addressable": true
+    },
+    {
+      "path": "css",
+      "addressable": true
+    },
+    {
+      "path": "img",
+      "addressable": true
+    },
+    {
+      "path": "scripts",
+      "addressable": true
+    },
+    {
+      "path": "moment.js",
+      "addressable": true
+    },
+    {
+      "path": "moment-timezone.js",
+      "addressable": true
+    },
+    {
+      "path": "ThirdPartyNotices.txt",
+      "addressable": true
+    }
+  ],
+  "scopes": [
+    "vso.work"
+  ]
+}

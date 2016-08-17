@@ -1,0 +1,24 @@
+﻿{
+  "Framework": "jasmine",
+  "TestFileTimeout": 60000,
+  "TestHarnessReferenceMode": "AMD",
+  "TypeScriptModuleKind": "AMD",
+  "Compile": {
+    "Mode": "External",
+    "Extensions": [ ".ts" ],
+    "ExtensionsWithNoOutput": [ ".d.ts" ]
+  },
+  "References": [
+    { "Path": "./scripts/lib/moment.js" },
+    { "Path": "./scripts/lib/moment-timezone.js" },
+    { "Path": "./scripts/lib/jquery.js" },
+    { "Path": "./scripts/lib/VSS.SDK.js" },
+    { "Path": "./node_modules/requirejs/require.js" }
+  ],
+  "Tests": [
+    {
+      "Includes": [ "*/tests/*.ts" ],
+      "Excludes": [ "*.d.ts", "*/scripts/*/*.ts" ]
+    }
+  ]
+}
