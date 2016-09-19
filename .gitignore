@@ -3,3 +3,8 @@
 ################################################################################
 
 *.map
+/CountdownWidget/CountdownWidget/bin/Debug
+/CountdownWidget/CountdownWidget/node_modules
+/CountdownWidget/.vs
+/CountdownWidget/CountdownWidget/obj
+/CountdownWidget/packages

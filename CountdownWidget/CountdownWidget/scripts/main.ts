@@ -16,7 +16,7 @@
 /// <reference path='../typings/index.d.ts' />
 /// <reference path="isettings.d.ts" />
 
-import CountdownWidget = require("scripts/countdownwidget");
+import CountdownWidget = require("scripts/countdownWidget");
 import TelemetryClient = require("scripts/TelemetryClient");
 
 VSS.require(["TFS/Dashboards/WidgetHelpers"], (WidgetHelpers) => {

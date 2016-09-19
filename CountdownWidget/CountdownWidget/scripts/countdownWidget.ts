@@ -15,7 +15,7 @@
 
 /// <reference path='../typings/index.d.ts' />
 
-import CountdownCalculator = require("scripts/countdowncalculator");
+import CountdownCalculator = require("scripts/countdownCalculator");
 import moment = require("moment-timezone");
 import Work_Client = require("TFS/Work/RestClient");
 import Work_Contracts = require("TFS/Work/Contracts");
