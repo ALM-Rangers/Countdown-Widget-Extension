@@ -12,7 +12,7 @@
 //    main code for the widget.
 // </summary>
 //---------------------------------------------------------------------
-define(["require", "exports", "scripts/countdowncalculator", "moment-timezone", "TFS/Work/RestClient", "VSS/WebApi/Constants", "VSS/Service"], function (require, exports, CountdownCalculator, moment, Work_Client, WebApi_Constants, Service) {
+define(["require", "exports", "scripts/countdownCalculator", "moment-timezone", "TFS/Work/RestClient", "VSS/WebApi/Constants", "VSS/Service"], function (require, exports, CountdownCalculator, moment, Work_Client, WebApi_Constants, Service) {
     "use strict";
     var CountdownWiget = (function () {
         function CountdownWiget(WidgetHelpers, isSprintEndWidget) {
