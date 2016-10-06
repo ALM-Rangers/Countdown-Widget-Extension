@@ -93,8 +93,19 @@ describe("countdown ", function () {
     });
 
 
-    it("countdown from 06-10-2016 14:20 Europe/Paris to 11-10-2016 23:59 Europe/Paris to be 3 days", function () {
+    it("use case 1 : countdown from 06-10-2016 14:20 Europe/Paris to 11-10-2016 23:59 Europe/Paris to be 3 days", function () {
         var DayOfWeeks = ["monday", "tuesday", "wednesday", "thursday","friday"];
+        var calculator = new CountdownCalculator.CountdownCalculator(
+            moment.tz("06-10-2016 14:00", "DD-MM-YYYY H:m", "Europe/Paris"),
+            moment.tz("11-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
+
+        var countdownResult = calculator.getDifference();
+        expect(countdownResult.value).toBe(3);
+        expect(CountdownCalculator.Unit[countdownResult.unit]).toBe("Days");
+    });
+
+    it("use case 2: (other non working day) countdown from 06-10-2016 14:20 Europe/Paris to 11-10-2016 23:59 Europe/Paris to be 3 days", function () {
+        var DayOfWeeks = ["sunday","wednesday","thursday", "friday","saturday"];
         var calculator = new CountdownCalculator.CountdownCalculator(
             moment.tz("06-10-2016 14:00", "DD-MM-YYYY H:m", "Europe/Paris"),
             moment.tz("11-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
