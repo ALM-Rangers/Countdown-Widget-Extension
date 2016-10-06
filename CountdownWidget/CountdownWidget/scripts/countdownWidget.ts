@@ -41,7 +41,9 @@ export class CountdownWiget {
                 return workClient.getTeamIterations(teamContext, "current").then(teamIterations => {
                     var iterationEndDate = teamIterations[0].attributes.finishDate;
                     if (iterationEndDate) {
-                        return this.display(moment(iterationEndDate), customSettings.name, customSettings.backgroundColor, customSettings.foregroundColor, workingdays);
+                        var iterationLastDay: moment.Moment;
+                        iterationLastDay = moment(iterationEndDate).hour(23).minute(59).second(59);
+                        return this.display(iterationLastDay, customSettings.name, customSettings.backgroundColor, customSettings.foregroundColor, workingdays);
                     }
                     else {
                         return this.display(null, customSettings.name, customSettings.backgroundColor, customSettings.foregroundColor, workingdays);

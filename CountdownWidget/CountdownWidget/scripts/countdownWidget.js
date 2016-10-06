@@ -31,7 +31,9 @@ define(["require", "exports", "scripts/countdownCalculator", "moment-timezone", 
                     return workClient.getTeamIterations(teamContext, "current").then(function (teamIterations) {
                         var iterationEndDate = teamIterations[0].attributes.finishDate;
                         if (iterationEndDate) {
-                            return _this.display(moment(iterationEndDate), customSettings.name, customSettings.backgroundColor, customSettings.foregroundColor, workingdays);
+                            var iterationLastDay;
+                            iterationLastDay = moment(iterationEndDate).hour(23).minute(59).second(59);
+                            return _this.display(iterationLastDay, customSettings.name, customSettings.backgroundColor, customSettings.foregroundColor, workingdays);
                         }
                         else {
                             return _this.display(null, customSettings.name, customSettings.backgroundColor, customSettings.foregroundColor, workingdays);

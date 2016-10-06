@@ -63,7 +63,7 @@ define(["require", "exports"], function (require, exports) {
                 return new CountdownResult(0, Unit.Invalid);
             }
             var diff = function (unit) {
-                return _this.to.diff(_this.from, Unit[unit].toLowerCase());
+                return _this.to.diff(_this.from, Unit[unit].toLowerCase(), false);
             };
             var numberOfExcludedDays = 0;
             if (this.workingdays.length > 0) {

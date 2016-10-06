@@ -75,7 +75,7 @@ export class CountdownCalculator {
         }
 
         var diff = (unit: Unit) => {
-            return this.to.diff(this.from, Unit[unit].toLowerCase());
+            return this.to.diff(this.from, Unit[unit].toLowerCase(), false);
         }
 
         var numberOfExcludedDays = 0;
