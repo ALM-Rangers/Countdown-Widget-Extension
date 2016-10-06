@@ -1,7 +1,6 @@
 ﻿/// <reference path="../typings/index.d.ts" />
 import moment = require("moment-timezone");
 import CountdownCalculator = require("../scripts/countdownCalculator");
-import System_Contracts = require("VSS/Common/Contracts/System");
 
 describe("countdown ", function () {
     it("from date before to date is valid", function () {
