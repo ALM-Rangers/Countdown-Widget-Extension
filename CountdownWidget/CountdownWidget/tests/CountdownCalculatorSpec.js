@@ -51,7 +51,7 @@ define(["require", "exports", "moment-timezone", "../scripts/countdownCalculator
             expect(countdownResult.value).toBe(9);
             expect(CountdownCalculator.Unit[countdownResult.unit]).toBe("Hours");
         });
-        it("countdown from 06-10-2016 14:20 Europe/Paris to 11-10-2016 02:00 Europe/Paris to be 4 days", function () {
+        it("countdown from 06-10-2016 14:20 Europe/Paris to 11-10-2016 23:59 Europe/Paris to be 3 days", function () {
             var DayOfWeeks = ["monday", "tuesday", "wednesday", "thursday", "friday"];
             var calculator = new CountdownCalculator.CountdownCalculator(moment.tz("06-10-2016 14:00", "DD-MM-YYYY H:m", "Europe/Paris"), moment.tz("11-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
             var countdownResult = calculator.getDifference();
