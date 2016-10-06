@@ -69,6 +69,7 @@ define(["require", "exports"], function (require, exports) {
             if (this.workingdays.length > 0) {
                 numberOfExcludedDays = this.countExcluded();
             }
+            var test = diff(Unit.Days);
             this.to.add(-numberOfExcludedDays, Unit[Unit.Days].toLowerCase());
             var numberOfDays = diff(Unit.Days);
             if (numberOfDays >= 1) {

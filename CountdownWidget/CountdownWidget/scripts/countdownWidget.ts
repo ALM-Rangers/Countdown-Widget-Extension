@@ -60,7 +60,7 @@ export class CountdownWiget {
         var $countdownBottomContainer = $("#countdown-bottom-container");
         var $errorContainer = $('#error-container');
         var $countDownBody = $('.countdown');
-        
+
         $title.text(name);
 
         if (backgroundColor) {
@@ -87,10 +87,15 @@ export class CountdownWiget {
         }
 
         var now = moment();
+        var _workinddays = [];
+        workingdays.forEach(element => {
+            _workinddays.push(element);
+        });
+
         var calculator = new CountdownCalculator.CountdownCalculator(
             now,
             to,
-            workingdays
+            _workinddays
         );
 
         if (calculator.isValid()) {
@@ -147,13 +152,13 @@ export class CountdownWiget {
                     workingdays = teamSettings.workingDays;
                 }
 
-            if (this.isSprintEndWidget) {
-                return this.showSprintWidget(customSettings, workingdays);
-            }
-            else {
-                return this.showCountdownWidget(customSettings, workingdays);
-            }
-        });
+                if (this.isSprintEndWidget) {
+                    return this.showSprintWidget(customSettings, workingdays);
+                }
+                else {
+                    return this.showCountdownWidget(customSettings, workingdays);
+                }
+            });
         }
         catch (e) {
             console.log(e);

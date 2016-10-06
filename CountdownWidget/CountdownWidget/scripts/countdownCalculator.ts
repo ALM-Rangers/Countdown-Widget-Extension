@@ -18,15 +18,15 @@
 /// <reference path='../typings/index.d.ts' />
 
 import moment = require("moment-timezone");
-import System_Contracts = require("VSS/Common/Contracts/System");
+
 
 export class CountdownCalculator {
 
     from: moment.Moment;
     to: moment.Moment;
-    workingdays: System_Contracts.DayOfWeek[];
+    workingdays: string[];
 
-    constructor(from: moment.Moment, to: moment.Moment, workingdays: System_Contracts.DayOfWeek[] = []) {
+    constructor(from: moment.Moment, to: moment.Moment, workingdays: string[] = []) {
         this.from = from;
         this.to = to;
         this.workingdays = workingdays;
@@ -83,6 +83,7 @@ export class CountdownCalculator {
             numberOfExcludedDays = this.countExcluded();
         }
 
+        var test = diff(Unit.Days);
         this.to.add(-numberOfExcludedDays, Unit[Unit.Days].toLowerCase());
         var numberOfDays = diff(Unit.Days);
 

@@ -72,7 +72,11 @@ define(["require", "exports", "scripts/countdownCalculator", "moment-timezone", 
                 $errorContainer.empty();
             }
             var now = moment();
-            var calculator = new CountdownCalculator.CountdownCalculator(now, to, workingdays);
+            var _workinddays = [];
+            workingdays.forEach(function (element) {
+                _workinddays.push(element);
+            });
+            var calculator = new CountdownCalculator.CountdownCalculator(now, to, _workinddays);
             if (calculator.isValid()) {
                 var result = calculator.getDifference();
                 $container.text(result.value);
