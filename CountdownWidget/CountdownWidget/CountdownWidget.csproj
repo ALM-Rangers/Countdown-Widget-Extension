@@ -45,7 +45,6 @@
     <Content Include="countdown.html" />
     <Content Include="countdownconfiguration.html" />
     <Content Include="css\app.css" />
-    <Content Include="css\jasmine.css" />
     <Content Include="img\Configure-Extension.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\Preview-Full.png" />
@@ -66,8 +65,6 @@
     <None Include="package.json" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
-    <Content Include="scripts\jasmine-html.js" />
-    <Content Include="scripts\jasmine.js" />
     <Content Include="scripts\lib\jquery.datetimepicker.css" />
     <Content Include="scripts\lib\jquery.datetimepicker.js" />
     <Content Include="scripts\lib\jquery.js" />
