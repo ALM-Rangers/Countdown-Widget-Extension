@@ -46,7 +46,7 @@
       ],
       "properties": {
         "name": "Countdown Widget",
-        "description": "Counts down to a configurable moment in time. Also see the Sprint End Countdown Widget, which counts down to the end of the current sprint.",
+        "description": "Counts down to a configurable moment in time. Also see the Sprint End Countdown Widget.",
         "previewImageUrl": "img/logo.png",
         "uri": "countdown.html",
         "isNameConfigurable": true,
@@ -80,7 +80,7 @@
       ],
       "properties": {
         "name": "Sprint End Countdown Widget",
-        "description": "Counts down to the end of the current sprint. Also see the Countdown Widget, which counts down to a configurable moment in time.",
+        "description": "Counts down to the end of the current sprint. Also see the Countdown Widget.",
         "previewImageUrl": "img/Preview-Sprint.png",
         "uri": "countdown.html",
         "isNameConfigurable": true,
