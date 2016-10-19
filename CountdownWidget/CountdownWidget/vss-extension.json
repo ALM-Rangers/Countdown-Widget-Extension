@@ -46,7 +46,7 @@
       ],
       "properties": {
         "name": "Countdown",
-        "description": "Counts down to a configurable moment in time. Also see the Sprint End Countdown Widget.",
+        "description": "Counts down to a configurable moment in time. Also see the Countdown Sprint Widget.",
         "previewImageUrl": "img/logo.png",
         "uri": "countdown.html",
         "isNameConfigurable": true,
