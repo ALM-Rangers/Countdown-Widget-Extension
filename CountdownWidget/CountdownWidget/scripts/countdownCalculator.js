@@ -48,8 +48,8 @@ define(["require", "exports"], function (require, exports) {
         CountdownCalculator.prototype.countExcluded = function () {
             var days = this.to.diff(this.from, 'days');
             var excludedDays = 0;
-            for (var i = 0; i <= days; i++) {
-                var weekday = this.from.clone().add(i, 'days').weekday() - 1;
+            for (var i = 1; i <= days; i++) {
+                var weekday = this.from.clone().add(i, 'days').weekday();
                 if (!this.isWorkDay(weekday)) {
                     excludedDays++;
                 }
