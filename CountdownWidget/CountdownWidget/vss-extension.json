@@ -46,7 +46,7 @@
       ],
       "properties": {
         "name": "Countdown",
-        "description": "Counts down to a configurable moment in time. Also see the Countdown Sprint Widget.",
+        "description": "Counts down to a configurable moment in time. Also see the Countdown Sprint widget.",
         "previewImageUrl": "img/logo.png",
         "uri": "countdown.html",
         "isNameConfigurable": true,
@@ -66,7 +66,7 @@
         "ms.vss-dashboards-web.widget-configuration"
       ],
       "properties": {
-        "name": "Countdown Widget Configuration",
+        "name": "Countdown Configuration",
         "description": "Configures the Countdown widget.",
         "uri": "countdownconfiguration.html"
       }
@@ -80,7 +80,7 @@
       ],
       "properties": {
         "name": "Countdown Sprint",
-        "description": "Counts down to the end of the current sprint. Also see the Countdown Widget.",
+        "description": "Counts down to the end of the current sprint. Also see the Countdown widget.",
         "previewImageUrl": "img/Preview-Sprint.png",
         "uri": "countdown.html",
         "isNameConfigurable": true,
@@ -98,8 +98,8 @@
       "type": "ms.vss-dashboards-web.widget-configuration",
       "targets": [ "ms.vss-dashboards-web.widget-configuration" ],
       "properties": {
-        "name": "Sprint End Countdown Widget Configuration",
-        "description": "Configures the Countdown widget.",
+        "name": "Countdown Sprint Configuration",
+        "description": "Configures the Countdown Sprint widget.",
         "uri": "countdownconfiguration.html"
       }
     }
