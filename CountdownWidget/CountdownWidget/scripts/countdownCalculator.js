@@ -27,14 +27,19 @@ define(["require", "exports"], function (require, exports) {
             return this.from.isBefore(this.to.format());
         };
         CountdownCalculator.prototype.getDayOfWeekNumber = function (day) {
-            switch (day) {
-                case "sunday": return 0;
-                case "monday": return 1;
-                case "tuesday": return 2;
-                case "wednesday": return 3;
-                case "thursday": return 4;
-                case "friday": return 5;
-                case "saturday": return 6;
+            if (typeof day == "string") {
+                switch (day) {
+                    case "sunday": return 0;
+                    case "monday": return 1;
+                    case "tuesday": return 2;
+                    case "wednesday": return 3;
+                    case "thursday": return 4;
+                    case "friday": return 5;
+                    case "saturday": return 6;
+                }
+            }
+            else {
+                return day;
             }
         };
         CountdownCalculator.prototype.isWorkDay = function (day) {

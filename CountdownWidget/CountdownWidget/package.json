@@ -3,7 +3,7 @@
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jasmine": "^1.0.3",
-    "grunt-exec": "^1.0.0",
+    "grunt-exec": "^1.0.1",
     "grunt-typings": "^0.1.5",
     "grunt-typescript": "^0.8.0",
     "jasmine": "^2.4.1",
@@ -15,7 +15,7 @@
     "tfx-cli": "^0.3.22",
     "typings": "^1.3.1",
     "vset": "^0.4.24",
-    "vss-web-extension-sdk": "^1.101.0"
+    "vss-web-extension-sdk": "^1.106.0"
   },
   "name": "countdown-widget",
   "private": true,

@@ -162,6 +162,29 @@ describe("countdown ", function () {
 
 
     });
+
+    it("use case 5: diff from 23-10-2016 11:38 Europe/Paris to 30-10-2016 23:59 Europe/Paris With skip no-working days to be 7 days", function () {
+        var DayOfWeeks = [];
+
+        DayOfWeeks.push(0);
+        DayOfWeeks.push(1);
+        DayOfWeeks.push(2);
+        DayOfWeeks.push(3);
+        DayOfWeeks.push(4);
+        DayOfWeeks.push(5);
+        DayOfWeeks.push(6);
+
+
+        var calculator = new CountdownCalculator.CountdownCalculator(
+            moment.tz("23-10-2016 11:38", "DD-MM-YYYY H:m", "Europe/Paris"),
+            moment.tz("30-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
+
+
+        var countdownResult = calculator.getDifference();
+        expect(countdownResult.value).toBe(7);
+        expect(CountdownCalculator.Unit[countdownResult.unit]).toBe("Days");
+
+    });
 });
 
 
@@ -172,15 +195,15 @@ describe("diff method ", function () {
 
 
     it("diff from 06-10-2016 14:20 Europe/Paris to 11-10-2016 02:00 Europe/Paris to be 5 days", function () {
-      
+
         var from = moment.tz("06-10-2016 14:00", "DD-MM-YYYY H:m", "Europe/Paris");
         var to = moment.tz("11-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris");
 
 
         var datediff = to.diff(from, "days", false);
-    
+
         expect(datediff).toBe(5);
-       
+
     });
 
     it("round diff from 06-10-2016 14:20 Europe/Paris to 11-10-2016 02:00 Europe/Paris to be 5 days", function () {
