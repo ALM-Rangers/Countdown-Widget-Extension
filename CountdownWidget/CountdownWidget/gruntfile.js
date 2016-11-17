@@ -57,6 +57,19 @@ module.exports = function (grunt) {
                 }
                 ]
             }
+        },
+        typescript: {
+            compile: {
+                src: ['scripts/*.ts'],
+                dest: 'scripts',
+                options: {
+                    module: 'amd',
+                    target: 'es5',
+                    sourceMap: true,
+                    declaration: false,
+                    references: ["typings/**/*.d.ts"]
+                }
+            }
         }
     });
 

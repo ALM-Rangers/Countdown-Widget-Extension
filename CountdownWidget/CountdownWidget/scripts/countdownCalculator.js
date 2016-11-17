@@ -22,6 +22,8 @@ define(["require", "exports"], function (require, exports) {
             this.from = from;
             this.to = to;
             this.workingdays = workingdays;
+            console.log("Countdown Widget from :" + from.format());
+            console.log("Countdown Widget to :" + to.format());
         }
         CountdownCalculator.prototype.isValid = function () {
             return this.from.isBefore(this.to.format());

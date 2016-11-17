@@ -30,6 +30,9 @@ export class CountdownCalculator {
         this.from = from;
         this.to = to;
         this.workingdays = workingdays;
+
+        console.log("Countdown Widget from :" + from.format());
+        console.log("Countdown Widget to :" + to.format());
     }
 
     public isValid(): boolean {

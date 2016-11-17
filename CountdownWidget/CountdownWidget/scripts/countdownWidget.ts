@@ -39,10 +39,15 @@ export class CountdownWiget {
         return workClient.getTeamIterations(teamContext).then(iterations => {
             if (iterations.length > 0) {
                 return workClient.getTeamIterations(teamContext, "current").then(teamIterations => {
+                    
                     var iterationEndDate = teamIterations[0].attributes.finishDate;
                     if (iterationEndDate) {
+                        //console.log("iterationLastDay before apply moment.utc :" + iterationEndDate);
                         var iterationLastDay: moment.Moment;
-                        iterationLastDay = moment(iterationEndDate).hour(23).minute(59).second(59);
+                        iterationLastDay = moment.utc(iterationEndDate).hour(23).minute(59).second(59);
+                        //convert to utc else is convert to local time zone date
+                        //.hour(23).minute(59).second(59) for have full last day iteration
+                        //console.log("iterationLastDay after apply moment.utc :" + iterationLastDay.format());
                         return this.display(iterationLastDay, customSettings.name, customSettings.backgroundColor, customSettings.foregroundColor, workingdays);
                     }
                     else {
@@ -89,6 +94,7 @@ export class CountdownWiget {
         }
 
         var now = moment();
+
         var _workinddays = [];
         workingdays.forEach(element => {
             _workinddays.push(element);
