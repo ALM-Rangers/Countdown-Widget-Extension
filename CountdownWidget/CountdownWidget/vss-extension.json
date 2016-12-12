@@ -25,15 +25,15 @@
     }
   },
   "links": {
-  "repository": {
-    "uri": "https://github.com/ALM-Rangers/Countdown-Widget-Extension"
-  },
-  "issues": {
-    "uri": "https://github.com/ALM-Rangers/Countdown-Widget-Extension/issues"
-  },
-  "support": {
-    "uri": "http://aka.ms/vsarcontact"
-  }
+    "repository": {
+      "uri": "https://github.com/ALM-Rangers/Countdown-Widget-Extension"
+    },
+    "issues": {
+      "uri": "https://github.com/ALM-Rangers/Countdown-Widget-Extension/issues"
+    },
+    "support": {
+      "uri": "http://aka.ms/vsarcontact"
+    }
   },
   "repository": {
     "type": "git",
