@@ -6,19 +6,29 @@
   "Compile": {
     "Mode": "External",
     "Extensions": [ ".ts" ],
-    "ExtensionsWithNoOutput": [ ".d.ts" ]
+    "ExtensionsWithNoOutput": [ ".d.ts" ],
+    "UseSourceMaps": true
   },
   "References": [
-    { "Path": "./scripts/lib/moment.js" },
-    { "Path": "./scripts/lib/moment-timezone.js" },
-    { "Path": "./scripts/lib/jquery.js" },
-    { "Path": "./scripts/lib/VSS.SDK.js" },
-    { "Path": "./node_modules/requirejs/require.js" }
+  { "Path": "./scripts/lib/moment.js", "IsTestFrameworkFile": true },
+    { "Path": "./scripts/lib/moment-timezone.js", "IsTestFrameworkFile": true },
+    { "Path": "./scripts/lib/jquery.js", "IsTestFrameworkFile": true },
+    { "Path": "./scripts/lib/VSS.SDK.js", "IsTestFrameworkFile": true },
+    { "Path": "./node_modules/requirejs/require.js", "IsTestFrameworkFile": true }
   ],
   "Tests": [
     {
       "Includes": [ "*/tests/*.ts" ],
       "Excludes": [ "*.d.ts", "*/scripts/*/*.ts", "*/tests/TestSpec.ts" ]
     }
+  ],
+  "CodeCoverageExecutionMode": "Always",
+  "CodeCoverageIncludes": [ "*/scripts/countdownCalculator.js", "*/scripts/countdownWidget.js"],
+  "CodeCoverageExcludes": [ "*/moment-timezone.js", "*/moment.js" ],
+  "Transforms": [
+      {
+      "Name": "lcov",
+      "Path": "lcov.dat"
+      }
   ]
 }
