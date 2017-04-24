@@ -1,8 +1,8 @@
 # Show countdown counters for your team's important events ##
 
-![](https://almrangers.visualstudio.com/DefaultCollection/_apis/public/build/definitions/7f3cfb9a-d1cb-4e66-9d36-1af87b906fe9/99/badge)
-
 Every team has important dates to remember. Make them visible for your team by adding countdown tiles to your dashboard!
+
+![](https://almrangers.visualstudio.com/DefaultCollection/_apis/public/build/definitions/7f3cfb9a-d1cb-4e66-9d36-1af87b906fe9/99/badge)
 
 ## Countdown widget
 
