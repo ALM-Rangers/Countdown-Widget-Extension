@@ -1,8 +1,0 @@
-{
-  "resolution": "main",
-  "tree": {
-    "src": "https://raw.githubusercontent.com/microsoft/vss-web-extension-sdk/2e3bde837341d382c05768c270e7fbec175e3918/typings/vss.d.ts",
-    "raw": "github:microsoft/vss-web-extension-sdk/typings/vss.d.ts#2e3bde837341d382c05768c270e7fbec175e3918",
-    "typings": "https://raw.githubusercontent.com/microsoft/vss-web-extension-sdk/2e3bde837341d382c05768c270e7fbec175e3918/typings/vss.d.ts"
-  }
-}

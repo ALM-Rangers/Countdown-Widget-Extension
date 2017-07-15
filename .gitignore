@@ -9,3 +9,5 @@
 /CountdownWidget/CountdownWidget/obj
 /CountdownWidget/packages
 /CountdownWidget/CountdownWidget/*.vsix
+/CountdownWidget/CountdownWidget/.vs
+/.vs

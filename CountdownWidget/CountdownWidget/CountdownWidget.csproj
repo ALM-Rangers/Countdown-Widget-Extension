@@ -12,7 +12,7 @@
     <AssemblyName>CountdownWidget</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44300</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
@@ -42,29 +42,24 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="countdown.html" />
-    <Content Include="countdownconfiguration.html" />
-    <Content Include="css\app.css" />
-    <Content Include="img\Configure-Extension.png" />
-    <Content Include="img\logo.png" />
-    <Content Include="img\Preview-Full.png" />
-    <Content Include="img\Preview-Sprint.png" />
-    <TypeScriptCompile Include="scripts\ai.0.22.19-build00125.d.ts" />
-    <TypeScriptCompile Include="scripts\configuration.ts" />
-    <TypeScriptCompile Include="scripts\countdownCalculator.ts" />
-    <TypeScriptCompile Include="scripts\countdownWidget.ts" />
-    <TypeScriptCompile Include="scripts\isettings.d.ts" />
-    <TypeScriptCompile Include="scripts\main.ts" />
-    <TypeScriptCompile Include="scripts\TelemetryClient.ts" />
+    <Content Include="static\countdown.html" />
+    <Content Include="static\countdownconfiguration.html" />
+    <Content Include="static\css\app.css" />
+    <Content Include="static\img\Configure-Extension.png" />
+    <Content Include="static\img\logo.png" />
+    <Content Include="static\img\Preview-Full.png" />
+    <Content Include="static\img\Preview-Sprint.png" />
+    <Content Include="webpack.config.js" />
+    <TypeScriptCompile Include="src\configuration.ts" />
+    <TypeScriptCompile Include="src\countdownCalculator.ts" />
+    <TypeScriptCompile Include="src\CountdownResult.ts" />
+    <TypeScriptCompile Include="src\countdownWidget.ts" />
+    <TypeScriptCompile Include="src\isettings.d.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
     <TypeScriptCompile Include="tests\CountdownCalculatorSpec.ts" />
-    <TypeScriptCompile Include="tests\TestSpec.ts" />
-    <Content Include="moment-timezone.js" />
-    <Content Include="moment.js" />
     <Content Include="Overview.md" />
-    <Content Include="marketplace\mp_terms.md" />
+    <Content Include="mp_terms.md" />
     <None Include="package.json" />
-    <Content Include="scripts\ai.0.22.19-build00125.js" />
-    <Content Include="scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="scripts\lib\jquery.datetimepicker.css" />
     <Content Include="scripts\lib\jquery.datetimepicker.js" />
     <Content Include="scripts\lib\jquery.js" />
@@ -73,12 +68,12 @@
     <Content Include="scripts\lib\spectrum.css" />
     <Content Include="scripts\lib\spectrum.js" />
     <Content Include="scripts\lib\VSS.SDK.js" />
-    <Content Include="tests\moment-timezone.js" />
     <Content Include="ThirdPartyNotices.txt" />
     <Content Include="web.config" />
     <Content Include="chutzpah.json" />
     <Content Include="packages.config" />
-    <Content Include="typings.json" />
+    <Content Include="tsconfig.json" />
+    <Content Include="tslint.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -88,7 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="vss-extension.json" />
-    <None Include="gruntfile.js" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

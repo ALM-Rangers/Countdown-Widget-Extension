@@ -1,13 +1,13 @@
 {
   "manifestVersion": 1,
   "id": "CountdownWidget",
-  "version": "0.0.0",
-  "publisher": "",
+  "version": "1.0.1",
+  "publisher": "WouterDeKortPlayground",
   "name": "Countdown Widgets",
   "description": "Count down to a configurable moment in time, or down to the end of the current sprint.",
   "public": false,
   "icons": {
-    "default": "img/logo.png"
+    "default": "static/img/logo.png"
   },
   "categories": [
     "Plan and track"
@@ -21,7 +21,7 @@
       "path": "overview.md"
     },
     "license": {
-      "path": "marketplace/mp_terms.md"
+      "path": "mp_terms.md"
     }
   },
   "links": {
@@ -59,8 +59,8 @@
       "properties": {
         "name": "Countdown",
         "description": "Counts down to a configurable moment in time. Also see the Countdown Sprint widget.",
-        "previewImageUrl": "img/logo.png",
-        "uri": "countdown.html",
+        "previewImageUrl": "static/img/logo.png",
+        "uri": "static/countdown.html",
         "isNameConfigurable": true,
         "supportedSizes": [
           {
@@ -80,7 +80,7 @@
       "properties": {
         "name": "Countdown Configuration",
         "description": "Configures the Countdown widget.",
-        "uri": "countdownconfiguration.html"
+        "uri": "static/countdownconfiguration.html"
       }
     },
     {
@@ -93,8 +93,8 @@
       "properties": {
         "name": "Countdown Sprint",
         "description": "Counts down to the end of the current sprint. Also see the Countdown widget.",
-        "previewImageUrl": "img/Preview-Sprint.png",
-        "uri": "countdown.html",
+        "previewImageUrl": "static/img/Preview-Sprint.png",
+        "uri": "static/countdown.html",
         "isNameConfigurable": true,
         "supportedSizes": [
           {
@@ -112,37 +112,29 @@
       "properties": {
         "name": "Countdown Sprint Configuration",
         "description": "Configures the Countdown Sprint widget.",
-        "uri": "countdownconfiguration.html"
+        "uri": "static/countdownconfiguration.html"
       }
     }
   ],
   "files": [
     {
-      "path": "countdown.html",
+      "path": "static/countdown.html",
       "addressable": true
     },
     {
-      "path": "countdownconfiguration.html",
+      "path": "static/countdownconfiguration.html",
       "addressable": true
     },
     {
-      "path": "css",
+      "path": "static/css",
       "addressable": true
     },
     {
-      "path": "img",
+      "path": "static/img",
       "addressable": true
     },
     {
-      "path": "scripts",
-      "addressable": true
-    },
-    {
-      "path": "moment.js",
-      "addressable": true
-    },
-    {
-      "path": "moment-timezone.js",
+      "path": "src",
       "addressable": true
     },
     {

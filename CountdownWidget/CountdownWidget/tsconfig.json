@@ -1,0 +1,16 @@
+﻿{
+  "compilerOptions": {
+    "module": "amd",
+    "moduleResolution": "node",
+    "target": "es5",
+    "outDir": "dist/",
+    "sourceMap": true,
+    "types": [
+      "vss-web-extension-sdk"
+    ]
+
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
