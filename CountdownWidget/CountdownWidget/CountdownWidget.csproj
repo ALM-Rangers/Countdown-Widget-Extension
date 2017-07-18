@@ -62,6 +62,7 @@
     <TypeScriptCompile Include="src\countdownWidget.ts" />
     <TypeScriptCompile Include="src\isettings.d.ts" />
     <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\telemetryClientSettings.ts" />
     <TypeScriptCompile Include="tests\CountdownCalculatorSpec.ts" />
     <Content Include="Overview.md" />
     <Content Include="mp_terms.md" />
