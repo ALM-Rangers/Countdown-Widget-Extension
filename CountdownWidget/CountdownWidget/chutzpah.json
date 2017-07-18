@@ -11,19 +11,19 @@
   },
   "References": [
     {
-      "Path": "./scripts/lib/moment.js",
+      "Path": "./static/lib/moment.js",
       "IsTestFrameworkFile": true
     },
     {
-      "Path": "./scripts/lib/moment-timezone.js",
+      "Path": "./static/lib/moment-timezone.js",
       "IsTestFrameworkFile": true
     },
     {
-      "Path": "./scripts/lib/jquery.js",
+      "Path": "./static/lib/jquery.js",
       "IsTestFrameworkFile": true
     },
     {
-      "Path": "./scripts/lib/VSS.SDK.js",
+      "Path": "./static/lib/VSS.SDK.js",
       "IsTestFrameworkFile": true
     },
     {
@@ -34,11 +34,11 @@
   "Tests": [
     {
       "Includes": [ "*/tests/*.ts" ],
-      "Excludes": [ "*.d.ts", "*/scripts/*/*.ts", "*/tests/TestSpec.ts" ]
+      "Excludes": [ "*.d.ts", "*/src/*/*.ts" ]
     }
   ],
   "CodeCoverageExecutionMode": "Always",
-  "CodeCoverageIncludes": [ "*/scripts/countdownCalculator.js", "*/scripts/countdownWidget.js" ],
+  "CodeCoverageIncludes": [ "*/src/countdownCalculator.js", "*/src/countdownWidget.js" ],
   "CodeCoverageExcludes": [ "*/moment-timezone.js", "*/moment.js" ],
   "Transforms": [
     {
