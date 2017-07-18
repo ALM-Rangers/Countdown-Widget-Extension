@@ -1,8 +1,11 @@
+
 # Show countdown counters for your team's important events ##
+
+Every team has important dates to remember. Make them visible for your team by adding countdown tiles to your dashboard!
 
 ![](https://almrangers.visualstudio.com/DefaultCollection/_apis/public/build/definitions/7f3cfb9a-d1cb-4e66-9d36-1af87b906fe9/99/badge)
 
-Every team has important dates to remember. Make them visible for your team by adding countdown tiles to your dashboard!
+> ![Gears](Gears.png) Interested how our CI/CD pipeline works? Read [Set up a CI/CD pipeline with unit testing and code coverage for your Team Services extension](https://blogs.msdn.microsoft.com/visualstudioalmrangers/2017/04/24/set-up-a-cicd-pipeline-with-unit-testing-and-code-coverage-for-your-team-services-extension/) to learn more. 
 
 ## Countdown widget
 
