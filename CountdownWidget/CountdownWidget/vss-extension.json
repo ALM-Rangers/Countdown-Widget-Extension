@@ -1,9 +1,8 @@
 {
   "manifestVersion": 1,
   "id": "CountdownWidget",
-  "version": "1.0.10",
-  "publisher": "WouterDeKortPlayground",
-  "baseUri": "https://localhost:44302/",
+  "version": "0.0.0",
+  "publisher": "",
   "name": "Countdown Widgets",
   "description": "Count down to a configurable moment in time, or down to the end of the current sprint.",
   "public": false,
