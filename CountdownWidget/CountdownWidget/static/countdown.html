@@ -28,11 +28,11 @@
         <div id="error-container" class="error-text"></div>
     </div>
 
-    <script src="scripts/lib/VSS.SDK.js"></script>
-    <script src="scripts/lib/moment.js"></script>
-    <script src="scripts/lib/moment-timezone.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="scripts/ai.0.22.19-build00125.js"></script>
+    <script src="lib/VSS.SDK.js"></script>
+    <script src="lib/moment.js"></script>
+    <script src="lib/moment-timezone.js"></script>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/ai.0.js"></script>
     
 
     <script type="text/javascript">
@@ -44,7 +44,7 @@
             usePlatformStyles: true
         });
         VSS.ready(function () {
-            require(["scripts/main"], function (main) { });
+            require(["dist/app"], function (main) { });
         });
     </script>
 </body>

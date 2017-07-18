@@ -16,8 +16,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <link href="scripts/lib/jquery.datetimepicker.css" rel="stylesheet" />
-    <link href='scripts/lib/spectrum.css' rel='stylesheet' />
+    <link href="lib/jquery.datetimepicker.css" rel="stylesheet" />
+    <link href="lib/spectrum.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
 </head>
 <body>
@@ -48,13 +48,13 @@
         </div>
     </div>
     <div class="error"></div>
-    
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="scripts/lib/VSS.SDK.js"></script>
-    <script src="scripts/lib/moment.js"></script>
-    <script src="scripts/lib/moment-timezone.js"></script>
-    <script src="scripts/ai.0.22.19-build00125.min.js"></script>
-    <script src='scripts/lib/spectrum.js'></script>
+
+    <script src="lib/jquery.js"></script>
+    <script src="lib/VSS.SDK.js"></script>
+    <script src="lib/moment.js"></script>
+    <script src="lib/moment-timezone.js"></script>
+    <script src="lib/ai.0.js"></script>
+    <script src='lib/spectrum.js'></script>
 
     <script type="text/javascript">
         VSS.init({
@@ -65,7 +65,7 @@
         });
 
         VSS.ready(function () {
-            require(["scripts/configuration"], function (configuration) { });
+            require(["dist/dialog"], function (configuration) { });
         });
     </script>
 </body>
