@@ -1,8 +1,9 @@
 {
   "manifestVersion": 1,
   "id": "CountdownWidget",
-  "version": "1.0.1",
+  "version": "1.0.10",
   "publisher": "WouterDeKortPlayground",
+  "baseUri": "https://localhost:44302/",
   "name": "Countdown Widgets",
   "description": "Count down to a configurable moment in time, or down to the end of the current sprint.",
   "public": false,
@@ -118,28 +119,32 @@
   ],
   "files": [
     {
-      "path": "static/countdown.html",
+      "addressable": true,
+      "path": "static/countdown.html"
+    },
+    {
+      "addressable": true,
+      "path": "static/countdownconfiguration.html"
+    },
+    {
+      "addressable": true,
+      "path": "static/css"
+    },
+    {
+      "addressable": true,
+      "path": "static/img"
+    },
+    {
+      "path": "dist",
       "addressable": true
     },
     {
-      "path": "static/countdownconfiguration.html",
-      "addressable": true
+      "addressable": true,
+      "path": "src"
     },
     {
-      "path": "static/css",
-      "addressable": true
-    },
-    {
-      "path": "static/img",
-      "addressable": true
-    },
-    {
-      "path": "src",
-      "addressable": true
-    },
-    {
-      "path": "ThirdPartyNotices.txt",
-      "addressable": true
+      "addressable": true,
+      "path": "ThirdPartyNotices.txt"
     }
   ],
   "scopes": [
