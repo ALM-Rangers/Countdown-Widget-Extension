@@ -1,8 +1,8 @@
 {
   "manifestVersion": 1,
   "id": "CountdownWidget",
-  "version": "0.0.0",
-  "publisher": "",
+  "version": "0.0.3",
+  "publisher": "DevMikaelKrief",
   "name": "Countdown Widgets",
   "description": "Count down to a configurable moment in time, or down to the end of the current sprint.",
   "public": false,

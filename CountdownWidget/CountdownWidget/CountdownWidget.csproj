@@ -78,7 +78,6 @@
     <Content Include="ThirdPartyNotices.txt" />
     <Content Include="web.config" />
     <Content Include="chutzpah.json" />
-    <Content Include="packages.config" />
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
     <None Include="web.Debug.config">

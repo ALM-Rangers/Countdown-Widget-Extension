@@ -15,8 +15,8 @@
 
 import jasmine = require("jasmine");
 import moment = require("moment-timezone");
-import CountdownCalculator = require("../src/countdownCalculator");
-import CountdownResult = require("../src/CountdownResult");
+import * as CountdownCalculator from "../src/countdownCalculator";
+import * as CountdownResult from "../src/CountdownResult";
 
 describe("countdown ", () => {
 	it("from date before to date is valid", () => {

@@ -12,8 +12,15 @@
     "gallery-publish": "npm run build && tfx extension publish --rev-version --token mi244imrtmzyhxtiych23wf2e6titzfffbdhm25my5p3bob6el4q",
     "lint": "tslint -c tslint.json 'src/*.ts'",
     "package": "tfx extension create  --rev-version",
-    "postbuild": "npm run package",
-    "webpack": "webpack --progress --colors --config webpack.config.js --output-path ./dist -p"
+    "postbuilddemo": "npm run package",
+    "webpack": "webpack --progress --colors --config webpack.config.js --output-path ./dist -p",
+    "compiletests": "tsc ./tests/CountdownCalculatorSpec.ts",
+    "runtests": "jasmine-node --test-dir ./tests --verbose --junitreport --output ./reportTests/",
+    "runcovertests": "istanbul cover --hook-run-in-context --report cobertura --report html node_modules/jasmine-node/bin/jasmine-node --test-dir ./tests --verbose --junitreport --output ./reportTests/",
+    "inlinesource": "gulp inlinesource",
+    "pretest": "rimraf ./reportTests && rimraf ./coverage",
+    "test": "npm run compiletests && npm run runtests && npm run runcovertests",
+    "posttest": "npm run inlinesource"
   },
   "author": "ALM Rangers",
   "license": "MIT",
@@ -25,7 +32,11 @@
     "tslint": "^5.2.0",
     "tslint-loader": "^3.5.3",
     "typescript": "2.3.2",
-    "webpack": "^2.5.1"
+    "webpack": "^2.5.1",
+    "jasmine-node": "^1.14.5",
+    "istanbul": "^0.4.5",
+    "gulp": "^3.9.1",
+    "gulp-inline-source": "^3.1.0"
   },
   "dependencies": {
     "@types/jquery": "^2.0.34",
