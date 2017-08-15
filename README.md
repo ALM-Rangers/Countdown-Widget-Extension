@@ -11,16 +11,16 @@ Every team has important dates to remember. Make them visible for your team by a
 
 The countdown widget can be added for all the events you want to highlight on the dashboard. Use different colors  to make them easier to recognize for the team.
 
-![Countdown widget](CountdownWidget/CountdownWidget/img/Preview-Full.png)
+![Countdown widget](CountdownWidget/CountdownWidget/static/img/Preview-Full.png)
 
 You can customize the name of the tile, set the colors and of course set the moment in time it represents. 
 
-![Configure](CountdownWidget/CountdownWidget/img/Configure-Extension.png)
+![Configure](CountdownWidget/CountdownWidget/static/img/Configure-Extension.png)
 
 ## Sprint end countdown widget
 This simplified version of the widget shows the remaining time for the current iteration. Use the configuration pane to configure the title and tile colors.
 
-![Sprint Countdown widget](CountdownWidget/CountdownWidget/img/Preview-Sprint.png)
+![Sprint Countdown widget](CountdownWidget/CountdownWidget/static/img/Preview-Sprint.png)
 
 ## Prerequisites
 
