@@ -27,14 +27,14 @@ This simplified version of the widget shows the remaining time for the current i
 - Team Foundation Team Services
 - Team Foundation Server 2015 Update 3 (or higher)
 
-##Contributors
+## Contributors
 
 We thank the following contributor(s) for this widget: Mathias Olausson and Wouter de Kort. 
 
 ## Notices
 Notices for certain third party software included in this solution are provided here: [Third Party Notice](ThirdPartyNotices.txt).
 
-##Contribute
+## Contribute
 Contributions to Countdown Widget are welcome. Here is how you can contribute:  
 
 - Submit bugs and help us verify fixes  

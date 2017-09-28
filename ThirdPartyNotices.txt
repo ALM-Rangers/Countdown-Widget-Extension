@@ -3,7 +3,7 @@ THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
 Do Not Translate or Localize
 
 
-Countdown Widget incorporates third party material from the projects listed below. The original copyright notice and the license under which Microsoft received such third party material are set forth below. Microsoft reserves all other rights not expressly granted, whether by implication, estoppel or otherwise.  
+Countdown Widget incorporates third party material from the projects listed below. The original copyright notice and the license under which ALM | DevOps Ranger Contributors received such third party material are set forth below. ALM | DevOps Ranger Contributors reserve all other rights not expressly granted, whether by implication, estoppel or otherwise.  
 
 1. datetimepicker (https://github.com/xdan/datetimepicker)
 2. The Jasmine Module (https://github.com/jasmine/jasmine-npm)
@@ -171,6 +171,3 @@ http://www.apache.org/licenses/LICENSE-2.0
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 =========================================
 END OF lcov to cobertura XML converter  NOTICES, INFORMATION, AND LICENSE	
-
-
-
