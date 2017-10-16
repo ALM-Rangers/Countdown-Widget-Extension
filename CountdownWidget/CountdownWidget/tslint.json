@@ -6,8 +6,9 @@
 
   "jsRules": {},
   "rules": {
-    "indent": [ true, "tabs" ],
-    "comment-format": [ true, "check-space"]
+    "indent": [ false, "tabs" ],
+    "comment-format": [ true, "check-space" ],
+    "ordered-imports": false
   },
   "rulesDirectory": []
 }
