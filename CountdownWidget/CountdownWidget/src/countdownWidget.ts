@@ -22,177 +22,206 @@ import TFS_Core_Contracts = require("TFS/Core/Contracts");
 import Service = require("VSS/Service");
 import Q = require("q");
 import System_Contracts = require("VSS/Common/Contracts/System");
-
+    
 export class CountdownWiget {
-	constructor(
-		public WidgetHelpers,
-		public isSprintEndWidget: boolean) { }
+    constructor(
+        public WidgetHelpers,
+        public isSprintEndWidget: boolean) { }
 
-	public load(widgetSettings) {
-		return this.showCountdown(widgetSettings);
-	}
+    public load(widgetSettings) {
+        $("#countdown-container").data("date", "2018-01-01 03:00:00").TimeCircles({
+            time:
+            {
+                Days: {
+                    color: "#FFCC66",
+                    show: true,
+                    text: "Days",
+                },
+                Hours: {
+                    color: "#99CCFF",
+                    show: false,
+                    text: "Hours",
+                },
+                Minutes: {
+                    color: "#BBFFBB",
+                    show: false,
+                    text: "Minutes",
+                },
+                Seconds: {
+                    color: "#FF9999",
+                    show: false,
+                    text: "Seconds",
+                },
+            },
+        }).start();
 
-	public reload(widgetSettings) {
-		return this.showCountdown(widgetSettings);
-	}
+        return this.WidgetHelpers.WidgetStatusHelper.Success();
+     //   return this.showCountdown(widgetSettings);
+    }
 
-	private showSprintWidget(customSettings: ISettings, workingdays: System_Contracts.DayOfWeek[]) {
-		const webContext = VSS.getWebContext();
-		const teamContext: TFS_Core_Contracts.TeamContext = {
-			project: "",
-			projectId: webContext.project.id,
-			team: "",
-			teamId: webContext.team.id,
-		};
-		const workClient: Work_Client.WorkHttpClient = Service.VssConnection
-			.getConnection()
-			.getHttpClient(Work_Client.WorkHttpClient, WebApi_Constants.ServiceInstanceTypes.TFS);
+    public reload(widgetSettings) {
+        ($("#countdown-container") as any).TimeCircles();
+        return this.WidgetHelpers.WidgetStatusHelper.Success();
+        // return this.showCountdown(widgetSettings);
+    }
 
-		return workClient.getTeamIterations(teamContext).then((iterations) => {
-			if (iterations.length > 0) {
-				return workClient.getTeamIterations(teamContext, "current").then((teamIterations) => {
+    private showSprintWidget(customSettings: ISettings, workingdays: System_Contracts.DayOfWeek[]) {
+        const webContext = VSS.getWebContext();
+        const teamContext: TFS_Core_Contracts.TeamContext = {
+            project: "",
+            projectId: webContext.project.id,
+            team: "",
+            teamId: webContext.team.id,
+        };
+        const workClient: Work_Client.WorkHttpClient = Service.VssConnection
+            .getConnection()
+            .getHttpClient(Work_Client.WorkHttpClient, WebApi_Constants.ServiceInstanceTypes.TFS);
 
-					const iterationEndDate = teamIterations[0].attributes.finishDate;
-					if (iterationEndDate) {
-						let iterationLastDay: moment.Moment;
-						iterationLastDay = moment.utc(iterationEndDate).hour(23).minute(59).second(59);
-						// convert to utc else is convert to local time zone date
-						// .hour(23).minute(59).second(59) for have full last day iteration
-						return this.display(
-							iterationLastDay,
-							customSettings.name,
-							customSettings.backgroundColor,
-							customSettings.foregroundColor,
-							workingdays);
-					} else {
-						return this.display(
-							null,
-							customSettings.name,
-							customSettings.backgroundColor,
-							customSettings.foregroundColor,
-							workingdays);
-					}
-				});
-			} else {
-				return this.display(
-					null,
-					customSettings.name,
-					customSettings.backgroundColor,
-					customSettings.foregroundColor,
-					workingdays);
-			}
-		});
-	}
+        return workClient.getTeamIterations(teamContext).then((iterations) => {
+            if (iterations.length > 0) {
+                return workClient.getTeamIterations(teamContext, "current").then((teamIterations) => {
 
-	private display(to, name: string, backgroundColor, foregroundColor, workingdays: System_Contracts.DayOfWeek[]) {
-		const $title = $(".title");
-		const $container = $("#countdown-container");
-		const $countdownBottomContainer = $("#countdown-bottom-container");
-		const $errorContainer = $("#error-container");
-		const $countDownBody = $(".countdown");
+                    const iterationEndDate = teamIterations[0].attributes.finishDate;
+                    if (iterationEndDate) {
+                        let iterationLastDay: moment.Moment;
+                        iterationLastDay = moment.utc(iterationEndDate).hour(23).minute(59).second(59);
+                        // convert to utc else is convert to local time zone date
+                        // .hour(23).minute(59).second(59) for have full last day iteration
+                        return this.display(
+                            iterationLastDay,
+                            customSettings.name,
+                            customSettings.backgroundColor,
+                            customSettings.foregroundColor,
+                            workingdays);
+                    } else {
+                        return this.display(
+                            null,
+                            customSettings.name,
+                            customSettings.backgroundColor,
+                            customSettings.foregroundColor,
+                            workingdays);
+                    }
+                });
+            } else {
+                return this.display(
+                    null,
+                    customSettings.name,
+                    customSettings.backgroundColor,
+                    customSettings.foregroundColor,
+                    workingdays);
+            }
+        });
+    }
 
-		$title.text(name);
+    private display(to, name: string, backgroundColor, foregroundColor, workingdays: System_Contracts.DayOfWeek[]) {
+        const $title = $(".title");
+        const $container = $("#countdown-container");
+        const $countdownBottomContainer = $("#countdown-bottom-container");
+        const $errorContainer = $("#error-container");
+        const $countDownBody = $(".countdown");
 
-		if (backgroundColor) {
-			$countDownBody.css("background-color", backgroundColor);
-		}
-		if (foregroundColor) {
-			$countDownBody.css("color", foregroundColor);
-		}
+        $title.text(name);
 
-		if (!to) {
-			$errorContainer.text("Sorry, nothing to show");
-			$title
-				.add($container)
-				.add($countdownBottomContainer)
-				.hide();
-			return this.WidgetHelpers.WidgetStatusHelper.Success();
-		} else {
-			$title.
-				add($container)
-				.add($countdownBottomContainer)
-				.show();
-			$errorContainer.empty();
-		}
+        if (backgroundColor) {
+            $countDownBody.css("background-color", backgroundColor);
+        }
+        if (foregroundColor) {
+            $countDownBody.css("color", foregroundColor);
+        }
 
-		const now = moment();
-		const tempWorkingDays = [];
+        if (!to) {
+            $errorContainer.text("Sorry, nothing to show");
+            $title
+                .add($container)
+                .add($countdownBottomContainer)
+                .hide();
+            return this.WidgetHelpers.WidgetStatusHelper.Success();
+        } else {
+            $title.
+                add($container)
+                .add($countdownBottomContainer)
+                .show();
+            $errorContainer.empty();
+        }
 
-		workingdays.forEach((element) => {
-			tempWorkingDays.push(element);
-		});
+        const now = moment();
+        const tempWorkingDays = [];
 
-		const calculator = new CountdownCalculator.CountdownCalculator(
-			now,
-			to,
-			tempWorkingDays,
-		);
+        workingdays.forEach((element) => {
+            tempWorkingDays.push(element);
+        });
 
-		if (calculator.isValid()) {
-			const result = calculator.getDifference();
-			$container.text(result.value);
-			$countdownBottomContainer.text(result.getDisplayString() + " remaining");
-		} else {
-			$container.text(0);
-			$countdownBottomContainer.text("days remaining");
-		}
+        const calculator = new CountdownCalculator.CountdownCalculator(
+            now,
+            to,
+            tempWorkingDays,
+        );
 
-		return this.WidgetHelpers.WidgetStatusHelper.Success();
-	}
+        if (calculator.isValid()) {
+            const result = calculator.getDifference();
+            $container.text(result.value);
+            $countdownBottomContainer.text(result.getDisplayString() + " remaining");
+        } else {
+            $container.text(0);
+            $countdownBottomContainer.text("days remaining");
+        }
 
-	private showCountdownWidget(customSettings, workingdays) {
-		return this.display(
-			moment.tz(customSettings.countDownDate, "MM-DD-YYYY HH:mm", customSettings.timezone),
-			customSettings.name,
-			customSettings.backgroundColor,
-			customSettings.foregroundColor,
-			workingdays);
-	}
+        return this.WidgetHelpers.WidgetStatusHelper.Success();
+    }
 
-	private showCountdown(widgetSettings) {
-		let customSettings = JSON.parse(widgetSettings.customSettings.data) as ISettings;
+    private showCountdownWidget(customSettings, workingdays) {
+        return this.display(
+            moment.tz(customSettings.countDownDate, "MM-DD-YYYY HH:mm", customSettings.timezone),
+            customSettings.name,
+            customSettings.backgroundColor,
+            customSettings.foregroundColor,
+            workingdays);
+    }
 
-		if (!customSettings) {
-			customSettings = {
-				backgroundColor: "green",
-				countDownDate: moment().add(1, "days").format("MM-DD-YYYY HH:mm"),
-				foregroundColor: "white",
-				name: widgetSettings.name,
-				skipNonWorkingDays: false,
-				timezone: (moment as any).tz.guess(),
-			};
-		} else {
-			customSettings.name = widgetSettings.name;
-		}
+    private showCountdown(widgetSettings) {
+        let customSettings = JSON.parse(widgetSettings.customSettings.data) as ISettings;
 
-		try {
-			const webContext = VSS.getWebContext();
-			const teamContext: TFS_Core_Contracts.TeamContext = {
-				project: "",
-				projectId: webContext.project.id,
-				team: "",
-				teamId: webContext.team.id,
-			};
+        if (!customSettings) {
+            customSettings = {
+                backgroundColor: "green",
+                countDownDate: moment().add(1, "days").format("MM-DD-YYYY HH:mm"),
+                foregroundColor: "white",
+                name: widgetSettings.name,
+                skipNonWorkingDays: false,
+                timezone: (moment as any).tz.guess(),
+            };
+        } else {
+            customSettings.name = widgetSettings.name;
+        }
 
-			const workClient: Work_Client.WorkHttpClient = Service.VssConnection
-				.getConnection()
-				.getHttpClient(Work_Client.WorkHttpClient, WebApi_Constants.ServiceInstanceTypes.TFS);
+        try {
+            const webContext = VSS.getWebContext();
+            const teamContext: TFS_Core_Contracts.TeamContext = {
+                project: "",
+                projectId: webContext.project.id,
+                team: "",
+                teamId: webContext.team.id,
+            };
 
-			return workClient.getTeamSettings(teamContext).then((teamSettings) => {
+            const workClient: Work_Client.WorkHttpClient = Service.VssConnection
+                .getConnection()
+                .getHttpClient(Work_Client.WorkHttpClient, WebApi_Constants.ServiceInstanceTypes.TFS);
 
-				let workingdays: System_Contracts.DayOfWeek[] = [];
-				if (customSettings.skipNonWorkingDays) {
-					workingdays = teamSettings.workingDays;
-				}
+            return workClient.getTeamSettings(teamContext).then((teamSettings) => {
 
-				if (this.isSprintEndWidget) {
-					return this.showSprintWidget(customSettings, workingdays);
-				} else {
-					return this.showCountdownWidget(customSettings, workingdays);
-				}
-			});
-		} catch (e) {
-			// telemetry.log(..)
-		}
-	}
+                let workingdays: System_Contracts.DayOfWeek[] = [];
+                if (customSettings.skipNonWorkingDays) {
+                    workingdays = teamSettings.workingDays;
+                }
+
+                if (this.isSprintEndWidget) {
+                    return this.showSprintWidget(customSettings, workingdays);
+                } else {
+                    return this.showCountdownWidget(customSettings, workingdays);
+                }
+            });
+        } catch (e) {
+            // telemetry.log(..)
+        }
+    }
 }

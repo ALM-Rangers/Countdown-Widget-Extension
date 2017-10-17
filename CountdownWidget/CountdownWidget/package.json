@@ -9,7 +9,7 @@
   "scripts": {
     "build": "npm run lint && npm run clean && npm run webpack",
     "clean": "rimraf ./dist && rimraf ./*.vsix",
-    "gallery-publish": "npm run build && tfx extension publish --rev-version --token mi244imrtmzyhxtiych23wf2e6titzfffbdhm25my5p3bob6el4q",
+    "gallery-publish": "npm run build && tfx extension publish --rev-version --token azppw25elmz2hhmws27j4kdthwqfketlbdc7b6fbocxtje25ljfq",
     "lint": "tslint -c tslint.json 'src/*.ts'",
     "package": "tfx extension create  --rev-version",
     "postbuilddemo": "npm run package",
@@ -50,6 +50,7 @@
     "requirejs": "^2.2.0",
     "spectrum-colorpicker": "^1.8.0",
     "telemetryclient-team-services-extension": "*",
-    "vss-web-extension-sdk": "^2.116.1"
+    "vss-web-extension-sdk": "^2.116.1",
+    "timecircles": "^1.5.3"
   }
 }

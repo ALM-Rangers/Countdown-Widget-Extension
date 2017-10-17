@@ -18,6 +18,12 @@ module.exports = {
 		extensions: ["*", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
         modules: [path.resolve("./src"), "node_modules"]
 	},
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            compress: false,
+            mangle: false,
+        })
+    ],
 	module: {
 		rules: [
 			{

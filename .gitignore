@@ -16,3 +16,4 @@ CountdownWidget/CountdownWidget/src/*.js
 /CountdownWidget/CountdownWidget/reportTests
 /CountdownWidget/CountdownWidget/coverage
 /CountdownWidget/CountdownWidget/coverage-inline
+/CountdownWidget/CountdownWidget/package-lock.json

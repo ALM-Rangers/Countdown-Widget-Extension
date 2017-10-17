@@ -7,7 +7,7 @@
 //    PARTICULAR PURPOSE AND NONINFRINGEMENT.
 // </copyright>
 // <summary>
-//    This is part of the Countdown widget 
+//    This is part of the Countdown widget
 //    from the ALM Rangers. This file contains the main HTML
 //    layout for the extension + the bootstrap code.
 // </summary>
@@ -17,23 +17,21 @@
 <html>
 <head>
     <link href="css/app.css" rel="stylesheet" />
+    <link href="css/TimeCircles.css" rel="stylesheet" />
 </head>
 <body class="countdown">
     <div class="container">
-        <div class="title header">Final Countdown</div>
+        <div class="title header">Countdown</div>
         <div id="countdown-container" class="countdown-number header"></div>
-        <div id="countdown-bottom-container">days remaining</div>
     </div>
     <div class="container">
         <div id="error-container" class="error-text"></div>
     </div>
 
     <script src="lib/VSS.SDK.js"></script>
-    <script src="lib/moment.js"></script>
-    <script src="lib/moment-timezone.js"></script>
     <script src="lib/jquery.js"></script>
+    <script src="../src/TimeCircles.js"></script>
     <script src="lib/ai.0.js"></script>
-    
 
     <script type="text/javascript">
         VSS.init(
@@ -44,7 +42,7 @@
             usePlatformStyles: true
         });
         VSS.ready(function () {
-            require(["dist/app"], function (main) { });
+            require(["src/main"], function (main) { });
         });
     </script>
 </body>
