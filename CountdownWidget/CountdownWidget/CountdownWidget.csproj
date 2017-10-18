@@ -46,7 +46,10 @@
     <Content Include="gulpfile.js" />
     <Content Include="moment-timezone.js" />
     <Content Include="moment.js" />
-    <Content Include="src\TimeCircles.js" />
+    <TypeScriptCompile Include="src\TimeCircles\window.ts" />
+    <TypeScriptCompile Include="src\TimeCircles\TC_Instance.ts" />
+    <TypeScriptCompile Include="src\TimeCircles\TimeCircles.d.ts" />
+    <TypeScriptCompile Include="src\TimeCircles\TimeCircles.ts" />
     <Content Include="static\countdown.html" />
     <Content Include="static\countdownconfiguration.html" />
     <Content Include="static\css\app.css" />
