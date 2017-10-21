@@ -108,7 +108,8 @@ describe("countdown ", () => {
 				moment.tz("11-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
 
 			const countdownResult = calculator.getDifference();
-			expect(countdownResult.value).toBe(3);
+			expect(countdownResult.value).toBeGreaterThan(3.4);
+			expect(countdownResult.value).toBeLessThan(3.5);
 			expect(CountdownResult.Unit[countdownResult.unit]).toBe("Days");
 		});
 	it(
@@ -121,12 +122,13 @@ describe("countdown ", () => {
 				moment.tz("11-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
 
 			const countdownResult = calculator.getDifference();
-			expect(countdownResult.value).toBe(3);
+			expect(countdownResult.value).toBeGreaterThan(3.4);
+			expect(countdownResult.value).toBeLessThan(3.5);
 			expect(CountdownResult.Unit[countdownResult.unit]).toBe("Days");
 		});
 	it(
 		`use case 3 : diff from 16-10-2016 11:38 Europe/Paris to 30-10-2016 23:59 Europe/Paris
-			With skip no-working days to be 19 days`,
+			With skip no-working days to be 14.5 days`,
 		() => {
 			const DayOfWeeks = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
 
@@ -135,7 +137,7 @@ describe("countdown ", () => {
 				moment.tz("30-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
 
 			const countdownResultWithSkip = calculatorWithSkip.getDifference();
-			expect(countdownResultWithSkip.value).toBe(14);
+			expect(countdownResultWithSkip.value.toFixed(1)).toBe("14.5");
 		});
 	it(
 		`use case 3 bis: diff from 13-10-2016 11:38 Europe/Paris to 30-10-2016 23:59 Europe/Paris
@@ -148,7 +150,7 @@ describe("countdown ", () => {
 				moment.tz("30-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
 
 			const countdownResultWithSkip = calculatorWithSkip.getDifference();
-			expect(countdownResultWithSkip.value).toBe(11);
+			expect(countdownResultWithSkip.value.toFixed(1)).toBe("11.5");
 		});
 	it(
 		`use case 4 : diff from 16-10-2016 11:38 Europe/Paris to 30-10-2016 23:59 Europe/Paris
@@ -161,7 +163,7 @@ describe("countdown ", () => {
 				moment.tz("30-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"));
 
 			const countdownResultNoSkip = calculatorNoSkip.getDifference();
-			expect(countdownResultNoSkip.value).toBe(14);
+			expect(countdownResultNoSkip.value.toFixed(1)).toBe("14.5");
 		});
 	it(
 		`use case 5: diff from 23-10-2016 11:38 Europe/Paris to 30-10-2016 23:59 Europe/Paris
@@ -173,7 +175,7 @@ describe("countdown ", () => {
 				moment.tz("30-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
 
 			const countdownResult = calculator.getDifference();
-			expect(countdownResult.value).toBe(7);
+			expect(countdownResult.value.toFixed(1)).toBe("7.5");
 			expect(CountdownResult.Unit[countdownResult.unit]).toBe("Days");
 		});
 });

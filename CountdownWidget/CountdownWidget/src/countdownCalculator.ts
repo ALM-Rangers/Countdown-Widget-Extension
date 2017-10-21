@@ -34,7 +34,7 @@ export class CountdownCalculator {
 		}
 
 		const diff = (unit: countdownResult.Unit) => {
-			return this.to.diff(this.from, countdownResult.Unit[unit].toLowerCase(), false);
+			return this.to.diff(this.from, countdownResult.Unit[unit].toLowerCase(), unit === countdownResult.Unit.Days);
 		};
 
 		let numberOfExcludedDays = 0;
@@ -44,13 +44,12 @@ export class CountdownCalculator {
 
 		const test = diff(countdownResult.Unit.Days);
 		this.to.add(-numberOfExcludedDays, countdownResult.Unit[countdownResult.Unit.Days].toLowerCase());
-		const numberOfDays = diff(countdownResult.Unit.Days);
+		const numberOfDays:number = diff(countdownResult.Unit.Days);
 
-		if (numberOfDays >= 1) {
-			return new countdownResult.CountdownResult(numberOfDays, countdownResult.Unit.Days);
+		if (numberOfDays >= 1.0) {
+			return new countdownResult.CountdownResult(numberOfDays, countdownResult.Unit.Days); // round up to the nearest 10th of a day and remove extranneous fractional part
 		} else {
 			const numberOfHours = diff(countdownResult.Unit.Hours);
-
 			if (numberOfHours >= 1) {
 				return new countdownResult.CountdownResult(numberOfHours, countdownResult.Unit.Hours);
 			} else {

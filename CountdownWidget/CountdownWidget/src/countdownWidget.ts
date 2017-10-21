@@ -14,6 +14,7 @@
 // ---------------------------------------------------------------------
 
 import CountdownCalculator = require("./countdownCalculator");
+import CountdownResult = require("./countdownResult");
 import moment = require("moment-timezone");
 import Work_Client = require("TFS/Work/RestClient");
 import Work_Contracts = require("TFS/Work/Contracts");
@@ -130,7 +131,12 @@ export class CountdownWiget {
 
 		if (calculator.isValid()) {
 			const result = calculator.getDifference();
-			$container.text(result.value);
+			if (result.unit === CountdownResult.Unit.Days) {
+				// round to the nearest 10th of a day, and remove extra fractional part
+				$container.text(result.value.toFixed(1));
+			} else {
+				$container.text(result.value);
+			}
 			$countdownBottomContainer.text(result.getDisplayString() + " remaining");
 		} else {
 			$container.text(0);
