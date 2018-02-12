@@ -44,10 +44,11 @@ export class CountdownCalculator {
 
 		const test = diff(countdownResult.Unit.Days);
 		this.to.add(-numberOfExcludedDays, countdownResult.Unit[countdownResult.Unit.Days].toLowerCase());
-		const numberOfDays:number = diff(countdownResult.Unit.Days);
+		const numberOfDays: number = diff(countdownResult.Unit.Days);
 
 		if (numberOfDays >= 1.0) {
-			return new countdownResult.CountdownResult(numberOfDays, countdownResult.Unit.Days); // round up to the nearest 10th of a day and remove extranneous fractional part
+			// round up to the nearest 10th of a day and remove extranneous fractional part
+			return new countdownResult.CountdownResult(numberOfDays, countdownResult.Unit.Days);
 		} else {
 			const numberOfHours = diff(countdownResult.Unit.Hours);
 			if (numberOfHours >= 1) {
