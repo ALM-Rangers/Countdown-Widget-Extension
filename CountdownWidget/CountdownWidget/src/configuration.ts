@@ -16,16 +16,16 @@
 // tslint:disable-next-line
 /// <reference path="isettings.d.ts" />
 
-import Work_Client = require("TFS/Work/RestClient");
-import Work_Contracts = require("TFS/Work/Contracts");
-import WebApi_Constants = require("VSS/WebApi/Constants");
-import TFS_Core_Contracts = require("TFS/Core/Contracts");
-import Service = require("VSS/Service");
+import moment = require("moment-timezone");
 import Q = require("q");
+import spectrum = require("spectrum-colorpicker");
+import TFS_Core_Contracts = require("TFS/Core/Contracts");
+import Work_Contracts = require("TFS/Work/Contracts");
+import Work_Client = require("TFS/Work/RestClient");
 import Controls = require("VSS/Controls");
 import Combos = require("VSS/Controls/Combos");
-import moment = require("moment-timezone");
-import spectrum = require("spectrum-colorpicker");
+import Service = require("VSS/Service");
+import WebApi_Constants = require("VSS/WebApi/Constants");
 
 // import TelemetryClient = require("scripts/TelemetryClient");
 
@@ -135,10 +135,10 @@ export class Configuration {
 	private showTimezones(settings) {
 		if (!this.isSprintWidget) {
 			const timezones = moment.tz.names();
-			for (let i = 0; i < timezones.length; i++) {
+			for (const timezone of timezones) {
 				const opt = document.createElement("option");
-				opt.innerHTML = timezones[i];
-				opt.value = timezones[i];
+				opt.innerHTML = timezone;
+				opt.value = timezone;
 				this.$select[0].appendChild(opt);
 			}
 

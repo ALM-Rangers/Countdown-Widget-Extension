@@ -13,16 +13,16 @@
 // </summary>
 // ---------------------------------------------------------------------
 
+import moment = require("moment-timezone");
+import Q = require("q");
+import TFS_Core_Contracts = require("TFS/Core/Contracts");
+import Work_Contracts = require("TFS/Work/Contracts");
+import Work_Client = require("TFS/Work/RestClient");
+import System_Contracts = require("VSS/Common/Contracts/System");
+import Service = require("VSS/Service");
+import WebApi_Constants = require("VSS/WebApi/Constants");
 import CountdownCalculator = require("./countdownCalculator");
 import CountdownResult = require("./countdownResult");
-import moment = require("moment-timezone");
-import Work_Client = require("TFS/Work/RestClient");
-import Work_Contracts = require("TFS/Work/Contracts");
-import WebApi_Constants = require("VSS/WebApi/Constants");
-import TFS_Core_Contracts = require("TFS/Core/Contracts");
-import Service = require("VSS/Service");
-import Q = require("q");
-import System_Contracts = require("VSS/Common/Contracts/System");
 
 export class CountdownWiget {
 	constructor(
