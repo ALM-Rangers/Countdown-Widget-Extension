@@ -66,7 +66,7 @@ export class CountdownCalculator {
 	}
 
 	public isValid(): boolean {
-		return this.from.isBefore(this.to.format());
+		return this.from.isBefore(this.to);
 	}
 
 	private getDayOfWeekNumber(day: any): number {
