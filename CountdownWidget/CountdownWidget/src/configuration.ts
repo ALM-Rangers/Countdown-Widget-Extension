@@ -168,7 +168,7 @@ export class Configuration {
 				formattedDate = moment(this.currentIterationEnd).format("MM-DD-YYYY HH:mm");
 			}
 		} else {
-			const selectedDate = Configuration.$dateTimeCombo.getInputText();
+			const selectedDate = Configuration.$dateTimeCombo.getValue();
 			if (selectedDate) {
 				formattedDate = moment(selectedDate).format("MM-DD-YYYY HH:mm");
 			}
