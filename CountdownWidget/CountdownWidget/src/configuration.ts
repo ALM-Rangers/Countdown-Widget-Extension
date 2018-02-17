@@ -82,11 +82,11 @@ export class Configuration {
 
 	private showDateTimePicker(settings, currentIterationEnd) {
 		if (!this.isSprintWidget) {
-			let countDownDate = moment().format("MM-DD-YYYY HH:mm");
+			let countDownDate = moment();
 			if (settings && settings.countDownDate) {
-				countDownDate = settings.countDownDate;
+				countDownDate = moment(settings.countDownDate, "MM-DD-YYYY HH:mm");
 			} else {
-				countDownDate = moment().add(1, "days").format("MM-DD-YYYY HH:mm");
+				countDownDate = moment().add(1, "days");
 			}
 
 			const dateTimeOptions: Combos.IDateTimeComboOptions = {
@@ -96,7 +96,7 @@ export class Configuration {
 				},
 				dateTimeFormat: "F",
 				type: "date-time",
-				value: countDownDate,
+				value: countDownDate.format("LLLL"),
 			};
 			Configuration.$dateTimeCombo = Controls.create(Combos.Combo, this.$datetimepicker, dateTimeOptions);
 		} else {
