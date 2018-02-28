@@ -131,13 +131,10 @@ export class CountdownWiget {
 
 		if (calculator.isValid()) {
 			const result = calculator.getDifference();
-			if (result.unit === CountdownResult.Unit.Days) {
-				// round to the nearest 10th of a day, and remove extra fractional part
-				$container.text(result.value.toFixed(1));
-			} else {
-				$container.text(result.value);
-			}
-			$countdownBottomContainer.text(result.getDisplayString() + " remaining");
+
+			$container.text(result.getDisplayValue());
+			$countdownBottomContainer.text(result.getDisplayUnit() + " remaining");
+			$container.css("font-size", result.getValueFontSize());
 		} else {
 			$container.text(0);
 			$countdownBottomContainer.text("days remaining");

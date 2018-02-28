@@ -14,11 +14,26 @@
 // ---------------------------------------------------------------------
 
 export class CountdownResult {
-
 	constructor(public value: number, public unit: Unit) {
 	}
 
-	public getDisplayString(): string {
+	public getValueFontSize(): string {
+		if (this.getDisplayValue().length >= 4) {
+			return "55px";
+		}
+
+		return "72px";
+	}
+
+	public getDisplayValue(): string {
+		if (this.unit === Unit.Days) {
+			return this.value.toFixed(1);
+		}
+
+		return this.value.toFixed(0);
+	}
+
+	public getDisplayUnit(): string {
 		return Unit[this.unit].toLowerCase();
 	}
 }
