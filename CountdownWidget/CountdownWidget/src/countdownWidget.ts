@@ -64,6 +64,7 @@ export class CountdownWiget {
 							customSettings.name,
 							customSettings.backgroundColor,
 							customSettings.foregroundColor,
+							customSettings.roundNumber,
 							workingdays);
 					} else {
 						return this.display(
@@ -71,6 +72,7 @@ export class CountdownWiget {
 							customSettings.name,
 							customSettings.backgroundColor,
 							customSettings.foregroundColor,
+							customSettings.roundNumber,
 							workingdays);
 					}
 				});
@@ -80,12 +82,16 @@ export class CountdownWiget {
 					customSettings.name,
 					customSettings.backgroundColor,
 					customSettings.foregroundColor,
+					customSettings.roundNumber,
 					workingdays);
 			}
 		});
 	}
 
-	private display(to, name: string, backgroundColor, foregroundColor, workingdays: System_Contracts.DayOfWeek[]) {
+	private display(
+		to, name: string, backgroundColor, foregroundColor,
+		roundNumber: boolean, workingdays: System_Contracts.DayOfWeek[]) {
+
 		const $title = $(".title");
 		const $container = $("#countdown-container");
 		const $countdownBottomContainer = $("#countdown-bottom-container");
@@ -126,6 +132,7 @@ export class CountdownWiget {
 		const calculator = new CountdownCalculator.CountdownCalculator(
 			now,
 			to,
+			roundNumber,
 			tempWorkingDays,
 		);
 
@@ -149,6 +156,7 @@ export class CountdownWiget {
 			customSettings.name,
 			customSettings.backgroundColor,
 			customSettings.foregroundColor,
+			customSettings.roundNumber,
 			workingdays);
 	}
 
@@ -161,6 +169,7 @@ export class CountdownWiget {
 				countDownDate: moment().add(1, "days").format("MM-DD-YYYY HH:mm"),
 				foregroundColor: "white",
 				name: widgetSettings.name,
+				roundNumber: false,
 				skipNonWorkingDays: false,
 				timezone: (moment as any).tz.guess(),
 			};

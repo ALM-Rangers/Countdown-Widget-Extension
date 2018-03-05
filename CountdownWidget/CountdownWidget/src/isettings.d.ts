@@ -19,5 +19,6 @@ interface ISettings {
 	name: string;
 	backgroundColor: string;
 	foregroundColor: string;
+	roundNumber: boolean;
 	skipNonWorkingDays: boolean;
 }

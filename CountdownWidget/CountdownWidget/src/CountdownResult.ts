@@ -14,7 +14,7 @@
 // ---------------------------------------------------------------------
 
 export class CountdownResult {
-	constructor(public value: number, public unit: Unit) {
+	constructor(public value: number, public unit: Unit, public roundNumber: boolean) {
 	}
 
 	public getValueFontSize(): string {
@@ -26,7 +26,7 @@ export class CountdownResult {
 	}
 
 	public getDisplayValue(): string {
-		if (this.unit === Unit.Days) {
+		if (!this.roundNumber && this.unit === Unit.Days) {
 			return this.value.toFixed(1);
 		}
 

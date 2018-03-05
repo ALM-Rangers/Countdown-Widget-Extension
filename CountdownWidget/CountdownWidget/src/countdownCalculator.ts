@@ -20,17 +20,19 @@ export class CountdownCalculator {
 
 	private from: moment.Moment;
 	private to: moment.Moment;
+	private roundNumber: boolean;
 	private workingdays: string[];
 
-	constructor(from: moment.Moment, to: moment.Moment, workingdays: string[] = []) {
+	constructor(from: moment.Moment, to: moment.Moment, roundNumber: boolean, workingdays: string[] = []) {
 		this.from = from;
 		this.to = to;
+		this.roundNumber = roundNumber;
 		this.workingdays = workingdays;
 	}
 
 	public getDifference(): countdownResult.CountdownResult {
 		if (!this.isValid()) {
-			return new countdownResult.CountdownResult(0, countdownResult.Unit.Invalid);
+			return new countdownResult.CountdownResult(0, countdownResult.Unit.Invalid, this.roundNumber);
 		}
 
 		const diff = (unit: countdownResult.Unit) => {
@@ -48,18 +50,18 @@ export class CountdownCalculator {
 
 		if (numberOfDays >= 1.0) {
 			// round up to the nearest 10th of a day and remove extranneous fractional part
-			return new countdownResult.CountdownResult(numberOfDays, countdownResult.Unit.Days);
+			return new countdownResult.CountdownResult(numberOfDays, countdownResult.Unit.Days, this.roundNumber);
 		} else {
 			const numberOfHours = diff(countdownResult.Unit.Hours);
 			if (numberOfHours >= 1) {
-				return new countdownResult.CountdownResult(numberOfHours, countdownResult.Unit.Hours);
+				return new countdownResult.CountdownResult(numberOfHours, countdownResult.Unit.Hours, this.roundNumber);
 			} else {
 				const numberOfMinutes = diff(countdownResult.Unit.Minutes);
 				if (numberOfMinutes >= 1) {
-					return new countdownResult.CountdownResult(numberOfMinutes, countdownResult.Unit.Minutes);
+					return new countdownResult.CountdownResult(numberOfMinutes, countdownResult.Unit.Minutes, this.roundNumber);
 				} else {
 					const numberOfSeconds = diff(countdownResult.Unit.Seconds);
-					return new countdownResult.CountdownResult(numberOfSeconds, countdownResult.Unit.Seconds);
+					return new countdownResult.CountdownResult(numberOfSeconds, countdownResult.Unit.Seconds, this.roundNumber);
 				}
 			}
 		}

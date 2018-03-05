@@ -22,21 +22,24 @@ describe("countdown ", () => {
 	it("from date before to date is valid", () => {
 		const calculator = new CountdownCalculator.CountdownCalculator(
 			moment("21122015", "DDMMYYYY"),
-			moment("01012016", "DDMMYYYY"));
+            moment("01012016", "DDMMYYYY"),
+            false);
 
 		expect(calculator.isValid()).toBe(true);
 	});
 	it("from date after to date is invalid", () => {
 		const calculator = new CountdownCalculator.CountdownCalculator(
 			moment("01012016", "DDMMYYYY"),
-			moment("21122015", "DDMMYYYY"));
+            moment("21122015", "DDMMYYYY"),
+            false);
 
 		expect(calculator.isValid()).toBe(false);
 	});
 	it("from 1-12-2015 to 31-12-2015 is 30 days", () => {
 		const calculator = new CountdownCalculator.CountdownCalculator(
 			moment("1-12-2015", "DD-MM-YYYY"),
-			moment("31-12-2015", "DD-MM-YYYY"));
+            moment("31-12-2015", "DD-MM-YYYY"),
+            false);
 
 		const countdownResult = calculator.getDifference();
 
@@ -46,7 +49,8 @@ describe("countdown ", () => {
 	it("from 1-12-2015 to 2-12-2015 is 1 day", () => {
 		const calculator = new CountdownCalculator.CountdownCalculator(
 			moment("01-12-2015", "DD-MM-YYYY"),
-			moment("02-12-2015", "DD-MM-YYYY"));
+            moment("02-12-2015", "DD-MM-YYYY"),
+            false);
 
 		const countdownResult = calculator.getDifference();
 		expect(countdownResult.value).toBe(1);
@@ -55,7 +59,8 @@ describe("countdown ", () => {
 	it("from 1-12-2015 10:00 to 1-12-2015 11:00 is 1 hour", () => {
 		const calculator = new CountdownCalculator.CountdownCalculator(
 			moment("01-12-2015 10:00", "DD-MM-YYYY HH"),
-			moment("01-12-2015 11:00", "DD-MM-YYYY HH"));
+            moment("01-12-2015 11:00", "DD-MM-YYYY HH"),
+            false);
 
 		const countdownResult = calculator.getDifference();
 		expect(countdownResult.value).toBe(1);
@@ -65,7 +70,8 @@ describe("countdown ", () => {
 
 		const calculator = new CountdownCalculator.CountdownCalculator(
 			moment("01-12-2015 10:00", "DD-MM-YYYY HH:mm"),
-			moment("01-12-2015 10:59", "DD-MM-YYYY HH:mm"));
+            moment("01-12-2015 10:59", "DD-MM-YYYY HH:mm"),
+            false);
 
 		const countdownResult = calculator.getDifference();
 		expect(countdownResult.value).toBe(59);
@@ -75,7 +81,8 @@ describe("countdown ", () => {
 
 		const calculator = new CountdownCalculator.CountdownCalculator(
 			moment("01-12-2015 10:00:00", "DD-MM-YYYY HH:mm:ss"),
-			moment("01-12-2015 10:00:59", "DD-MM-YYYY HH:mm:ss"));
+            moment("01-12-2015 10:00:59", "DD-MM-YYYY HH:mm:ss"),
+            false);
 
 		const countdownResult = calculator.getDifference();
 		expect(countdownResult.value).toBe(59);
@@ -84,7 +91,8 @@ describe("countdown ", () => {
 	it("invalid countdown to return a difference of 0", () => {
 		const calculator = new CountdownCalculator.CountdownCalculator(
 			moment("02-12-2015", "DD-MM-YYYY"),
-			moment("01-12-2015", "DD-MM-YYYY"));
+            moment("01-12-2015", "DD-MM-YYYY"),
+            false);
 
 		const countdownResult = calculator.getDifference();
 		expect(countdownResult.value).toBe(0);
@@ -93,7 +101,8 @@ describe("countdown ", () => {
 	it("countdown from 01-12-2015 10:00 Europe/Amsterdam to 01-12-2015 10:00 America/Los_Angeles to be 9 hours", () => {
 		const calculator = new CountdownCalculator.CountdownCalculator(
 			moment.tz("01-12-2015 10:00", "DD-MM-YYYY H:m", "Europe/Amsterdam"),
-			moment.tz("01-12-2015 10:00", "DD-MM-YYYY H:m", "America/Los_Angeles"));
+            moment.tz("01-12-2015 10:00", "DD-MM-YYYY H:m", "America/Los_Angeles"),
+            false);
 
 		const countdownResult = calculator.getDifference();
 		expect(countdownResult.value).toBe(9);
@@ -105,7 +114,7 @@ describe("countdown ", () => {
 			const DayOfWeeks = ["monday", "tuesday", "wednesday", "thursday", "friday"];
 			const calculator = new CountdownCalculator.CountdownCalculator(
 				moment.tz("06-10-2016 14:00", "DD-MM-YYYY H:m", "Europe/Paris"),
-				moment.tz("11-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
+                moment.tz("11-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), false, DayOfWeeks);
 
 			const countdownResult = calculator.getDifference();
 			expect(countdownResult.value).toBeGreaterThan(3.4);
@@ -119,7 +128,7 @@ describe("countdown ", () => {
 			const DayOfWeeks = ["sunday", "wednesday", "thursday", "friday", "saturday"];
 			const calculator = new CountdownCalculator.CountdownCalculator(
 				moment.tz("06-10-2016 14:00", "DD-MM-YYYY H:m", "Europe/Paris"),
-				moment.tz("11-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
+                moment.tz("11-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), false, DayOfWeeks);
 
 			const countdownResult = calculator.getDifference();
 			expect(countdownResult.value).toBeGreaterThan(3.4);
@@ -134,7 +143,7 @@ describe("countdown ", () => {
 
 			const calculatorWithSkip = new CountdownCalculator.CountdownCalculator(
 				moment.tz("16-10-2016 11:38", "DD-MM-YYYY H:m", "Europe/Paris"),
-				moment.tz("30-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
+                moment.tz("30-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), false, DayOfWeeks);
 
 			const countdownResultWithSkip = calculatorWithSkip.getDifference();
 			expect(countdownResultWithSkip.value.toFixed(1)).toBe("14.5");
@@ -147,7 +156,7 @@ describe("countdown ", () => {
 
 			const calculatorWithSkip = new CountdownCalculator.CountdownCalculator(
 				moment.tz("13-10-2016 11:38", "DD-MM-YYYY H:m", "Europe/Paris"),
-				moment.tz("30-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
+                moment.tz("30-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), false, DayOfWeeks);
 
 			const countdownResultWithSkip = calculatorWithSkip.getDifference();
 			expect(countdownResultWithSkip.value.toFixed(1)).toBe("11.5");
@@ -160,7 +169,7 @@ describe("countdown ", () => {
 
 			const calculatorNoSkip = new CountdownCalculator.CountdownCalculator(
 				moment.tz("16-10-2016 11:38", "DD-MM-YYYY H:m", "Europe/Paris"),
-				moment.tz("30-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"));
+                moment.tz("30-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), false);
 
 			const countdownResultNoSkip = calculatorNoSkip.getDifference();
 			expect(countdownResultNoSkip.value.toFixed(1)).toBe("14.5");
@@ -172,7 +181,7 @@ describe("countdown ", () => {
 			const DayOfWeeks = [0, 1, 2, 3, 4, 5, 6] as any;
 			const calculator = new CountdownCalculator.CountdownCalculator(
 				moment.tz("23-10-2016 11:38", "DD-MM-YYYY H:m", "Europe/Paris"),
-				moment.tz("30-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), DayOfWeeks);
+                moment.tz("30-10-2016 23:59", "DD-MM-YYYY H:m", "Europe/Paris"), false, DayOfWeeks);
 
 			const countdownResult = calculator.getDifference();
 			expect(countdownResult.value.toFixed(1)).toBe("7.5");
