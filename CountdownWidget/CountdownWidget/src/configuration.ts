@@ -116,10 +116,10 @@ export class Configuration {
 
 		const colorSettings = {
 			color: "",
-			hideAfterPaletteSelect: true,
+			hideAfterPaletteSelect: false,
 			palette,
 			showPalette: true,
-			showPaletteOnly: true,
+			showPaletteOnly: false,
 		};
 
 		colorSettings.color = (settings && settings.backgroundColor) ?

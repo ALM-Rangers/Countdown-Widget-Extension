@@ -25,7 +25,7 @@ This simplified version of the widget shows the remaining time for the current i
 
 ## Contributors
 
-We thank the following contributor(s) for this widget: Henry Been, Derek Keeler, Oliver Smit, Mathias Olausson, Mikael Krief, and Wouter de Kort. 
+We thank the following contributor(s) for this widget: Fabien Lavocat, Henry Been, Derek Keeler, Oliver Smit, Mathias Olausson, Mikael Krief, and Wouter de Kort. 
 
 ## Feedback
 
