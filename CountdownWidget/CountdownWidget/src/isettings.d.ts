@@ -21,4 +21,7 @@ interface ISettings {
 	foregroundColor: string;
 	roundNumber: boolean;
 	skipNonWorkingDays: boolean;
+	backgroundColorHoursEnabled: boolean;
+	backgroundColorHoursThreshold: number;
+	backgroundColorHoursColor: string;
 }

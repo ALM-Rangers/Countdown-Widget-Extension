@@ -36,6 +36,18 @@ export class CountdownResult {
 	public getDisplayUnit(): string {
 		return Unit[this.unit].toLowerCase();
 	}
+
+	public isLessThan(threshold: number, unit: Unit) {
+		if (this.unit < unit) {
+			return true;
+		}
+
+		if (this.unit === unit) {
+			return this.value < threshold;
+		}
+
+		return false;
+	}
 }
 
-export enum Unit { Years, Days, Hours, Minutes, Seconds, Invalid }
+export enum Unit { Invalid = 0, Seconds = 1, Minutes = 2, Hours = 3, Days = 4, Years = 5}

@@ -35,9 +35,12 @@ export class Configuration {
 	private widgetConfigurationContext = null;
 	private $countdownDateInput = $("#countdown-date-input");
 	private $datetimepicker = $("#datetimepicker") as any;
-	private $select = $("select");
+	private $timeZoneSelect = $("#countdown-timezone-select");
 	private $backgroundColor = $("#background-color-input");
 	private $foregroundColor = $("#foreground-color-input");
+	private $backgroundColorHoursEnabled = $("#background-color-hours-enabled");
+	private $backgroundColorHoursThreshold = $("#background-color-hours-threshold");
+	private $backgroundColorHoursColor = $("#background-color-hours-color-input");
 	private $skipNonWorkingDays = $("#skipNonWorkingDays");
 	private $roundNumber = $("#roundNumber");
 	private currentIterationEnd = null;
@@ -56,11 +59,15 @@ export class Configuration {
 				this.showDateTimePicker(settings, currentIterationEnd);
 				this.showWorkingDays(settings);
 				this.showRoundNumber(settings);
+				this.showBackgroundColorHours(settings);
 
 				VSS.resize();
-				this.$select
+				this.$timeZoneSelect
 					.add(this.$backgroundColor)
 					.add(this.$foregroundColor)
+					.add(this.$backgroundColorHoursColor)
+					.add(this.$backgroundColorHoursEnabled)
+					.add(this.$backgroundColorHoursThreshold)
 					.add(this.$skipNonWorkingDays)
 					.add(this.$roundNumber)
 					.change(() => {
@@ -131,8 +138,14 @@ export class Configuration {
 		colorSettings.color = (settings && settings.foregroundColor) ?
 			settings.foregroundColor
 			: "white";
+
 		(this.$foregroundColor as any).spectrum(colorSettings);
 
+		colorSettings.color = (settings && settings.backgroundColorHoursColor)
+			? settings.backgroundColorHoursColor
+			: "red";
+
+		(this.$backgroundColorHoursColor as any).spectrum(colorSettings);
 	}
 
 	private showTimezones(settings) {
@@ -142,16 +155,16 @@ export class Configuration {
 				const opt = document.createElement("option");
 				opt.innerHTML = timezone;
 				opt.value = timezone;
-				this.$select[0].appendChild(opt);
+				this.$timeZoneSelect[0].appendChild(opt);
 			}
 
 			if (settings && settings.timezone) {
-				this.$select.val(settings.timezone);
+				this.$timeZoneSelect.val(settings.timezone);
 			} else {
-				this.$select.val((moment as any).tz.guess());
+				this.$timeZoneSelect.val((moment as any).tz.guess());
 			}
 		} else {
-			this.$select.hide();
+			this.$timeZoneSelect.hide();
 			$(".countdown-config-label").hide();
 		}
 	}
@@ -172,6 +185,26 @@ export class Configuration {
 		}
 	}
 
+	private showBackgroundColorHours(settings) {
+		this.$backgroundColorHoursEnabled.change(() => this.onBackgroundColorHoursChanged());
+
+		if (settings && settings.backgroundColorHoursEnabled) {
+			this.$backgroundColorHoursEnabled.prop("checked", true);
+		}
+
+		this.onBackgroundColorHoursChanged();
+	}
+
+	private onBackgroundColorHoursChanged() {
+		if (this.$backgroundColorHoursEnabled.is(":checked")) {
+			$("#changeColorHoursInputsWrapper").show();
+		} else {
+			$("#changeColorHoursInputsWrapper").hide();
+		}
+
+		VSS.resize();
+	}
+
 	private getCustomSettings() {
 		let formattedDate = "";
 		if (this.isSprintWidget) {
@@ -187,17 +220,21 @@ export class Configuration {
 
 		const foregroundColor = (this.$foregroundColor as any).spectrum("get").toRgbString();
 		const backgroundColor = (this.$backgroundColor as any).spectrum("get").toRgbString();
+		const backgroundColorHours = (this.$backgroundColorHoursColor as any).spectrum("get").toRgbString();
 		const skipNonWorkingDays = this.$skipNonWorkingDays.prop("checked");
 		const roundNumber = this.$roundNumber.prop("checked");
 
 		const result = {
 			data: JSON.stringify({
 				backgroundColor,
+				backgroundColorHoursColor: backgroundColorHours,
+				backgroundColorHoursEnabled: this.$backgroundColorHoursEnabled.is(":checked"),
+				backgroundColorHoursThreshold: this.$backgroundColorHoursThreshold.val(),
 				countDownDate: formattedDate,
 				foregroundColor,
 				roundNumber,
 				skipNonWorkingDays,
-				timezone: $("select").val(),
+				timezone: this.$timeZoneSelect.val(),
 			} as ISettings),
 		};
 		return result;

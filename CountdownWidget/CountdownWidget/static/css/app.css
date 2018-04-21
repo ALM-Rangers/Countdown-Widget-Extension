@@ -41,6 +41,10 @@
     margin-right: 20px;
 }
 
+.foreground-picker {
+    margin-top: 1px
+}
+
 .background-picker {
     margin-top: 10px;
 }
@@ -60,5 +64,21 @@
 }
 
 .configuration-bottom {
-    height: 125px;
+    height: 25px;
+}
+
+.changeColorHoursInputsWrapper {
+    padding-left: 25px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.input-wrapper {
+    margin-right: 5px;
+    clear: right;
+    float: right;
+}
+
+.spacer-top {
+    margin-top: 25px;
 }

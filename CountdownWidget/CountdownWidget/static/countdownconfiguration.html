@@ -22,16 +22,20 @@
 </head>
 <body>
     <div class="container">
-        <div id="foreground-colorpicker" style="margin-top: 1px">
+        <div id="foreground-colorpicker" class="foreground-picker">
             <fieldset>
                 <label class="config-label">Foreground color</label>
-                <input id="foreground-color-input" class="field">
+                <div class="input-wrapper">
+                    <input id="foreground-color-input" class="field">
+                </div>
             </fieldset>
         </div>
         <div id="background-colorpicker" class="background-picker">
             <fieldset>
                 <label class="config-label">Background color</label>
-                <input id="background-color-input" class="field" style="margin-left: -1px">
+                <div class="input-wrapper">
+                    <input id="background-color-input" class="field">
+                </div>
             </fieldset>
         </div>
         <div class="countdown-config-label">
@@ -50,8 +54,35 @@
             <input type="checkbox" id="roundNumber" />
             <label for="roundNumber">Round the number of days to the nearest whole number</label>
         </div>
+        <div>
+            <input type="checkbox" id="background-color-hours-enabled" />
+            <label for="background-color-hours-enabled">Change background color when less than specified number of hours</label>
+        </div>
+        <div class="changeColorHoursInputsWrapper" id="changeColorHoursInputsWrapper">
+            <div>
+                <fieldset>
+                    <label for="changeColorHours-hours-input" class="config-label">Remaining number of hours less than: </label>
+                    <div class="input-wrapper">
+                        <select id="background-color-hours-threshold" class="field" style="width: 49px; height: 30px;">
+                            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+                            <option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+                            <option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option>
+                            <option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </div>
+            <div id="background-color-hours-color" class="background-picker">
+                <fieldset>
+                    <label class="config-label">Change color to</label>
+                    <div class="input-wrapper">
+                        <input id="background-color-hours-color-input" class="field">
+                    </div>
+                </fieldset>
+            </div>
+        </div>
         <div class="configuration-bottom">
-            &nbsp;					
+            &nbsp;
         </div>
     </div>
     <div class="error"></div>
