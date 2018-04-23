@@ -189,7 +189,11 @@ export class CountdownWiget {
 			$container.css("font-size", result.getValueFontSize());
 		} else {
 			$allContentElements.hide();
-			$errorContainer.text("Sorry, nothing to show");
+			let text = "Countdown: Sorry, nothing to show";
+			if (this.isSprintEndWidget) {
+				text = `Sprint ${text}`;
+			}
+			$errorContainer.text(text);
 		}
 	}
 
