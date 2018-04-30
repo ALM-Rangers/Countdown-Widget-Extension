@@ -29,7 +29,7 @@ This simplified version of the widget shows the remaining time for the current i
 
 ## Contributors
 
-We thank the following contributor(s) for this widget: Mathias Olausson and Wouter de Kort. 
+We thank the following contributor(s) for this widget: Fabien Lavocat, Henry Been, Derek Keeler, Oliver Smit, Mathias Olausson, Mikael Krief, and Wouter de Kort. 
 
 ## Notices
 Notices for certain third party software included in this solution are provided here: [Third Party Notice](ThirdPartyNotices.txt).
