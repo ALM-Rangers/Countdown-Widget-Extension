@@ -25,6 +25,7 @@ import Work_Client = require("TFS/Work/RestClient");
 import Controls = require("VSS/Controls");
 import Combos = require("VSS/Controls/Combos");
 import Service = require("VSS/Service");
+import DateUtils = require("VSS/Utils/Date");
 import WebApi_Constants = require("VSS/WebApi/Constants");
 
 // import TelemetryClient = require("scripts/TelemetryClient");
@@ -106,7 +107,7 @@ export class Configuration {
 				},
 				dateTimeFormat: "F",
 				type: "date-time",
-				value: countDownDate.format("LLLL"),
+				value: DateUtils.format(countDownDate.toDate(), "F"),
 			};
 			Configuration.$dateTimeCombo = Controls.create(Combos.Combo, this.$datetimepicker, dateTimeOptions);
 		} else {
@@ -191,6 +192,8 @@ export class Configuration {
 		if (settings && settings.backgroundColorHoursEnabled) {
 			this.$backgroundColorHoursEnabled.prop("checked", true);
 		}
+
+		this.$backgroundColorHoursThreshold.val(settings.backgroundColorHoursThreshold);
 
 		this.onBackgroundColorHoursChanged();
 	}
