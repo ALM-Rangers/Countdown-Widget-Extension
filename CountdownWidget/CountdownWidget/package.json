@@ -9,7 +9,7 @@
   "scripts": {
     "build": "npm run lint && npm run clean && npm run webpack",
     "clean": "rimraf ./dist && rimraf ./*.vsix",
-    "gallery-publish": "npm run build && tfx extension publish --rev-version --token mi244imrtmzyhxtiych23wf2e6titzfffbdhm25my5p3bob6el4q",
+    "gallery-publish": "npm run build && tfx extension publish --rev-version --token ewlbjtmrqwnw666rf2hxqrx6vgkx45n5qpzb4322dztqnvbcvbma",
     "lint": "tslint -c tslint.json 'src/*.ts'",
     "package": "tfx extension create  --rev-version",
     "postbuilddemo": "npm run package",
@@ -26,31 +26,33 @@
   "license": "MIT",
   "devDependencies": {
     "cpx": "^1.5.0",
+    "gulp": "^3.9.1",
+    "gulp-inline-source": "^3.1.0",
+    "istanbul": "^0.4.5",
+    "jasmine-node": "^1.14.5",
     "rimraf": "^2.6.1",
-    "tfx-cli": "^0.4.5",
-    "ts-loader": "^2.0.0",
+    "tfx-cli": "^0.5.14",
+    "ts-loader": "^4.4.2",
     "tslint": "^5.2.0",
     "tslint-loader": "^3.5.3",
-    "typescript": "2.3.2",
-    "webpack": "^2.5.1",
-    "jasmine-node": "^1.14.5",
-    "istanbul": "^0.4.5",
-    "gulp": "^3.9.1",
-    "gulp-inline-source": "^3.1.0"
+    "typescript": "2.9.2",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0"
   },
   "dependencies": {
-    "@types/jquery": "^2.0.34",
-    "@types/q": "0.0.32",
     "@types/jasmine": "^2.5.53",
+    "@types/jquery": "^3.3.5",
+    "@types/q": "1.5.0",
+    "@types/react": "^16.4.6",
     "applicationinsights-js": "^1.0.9",
-    "jasmine": "^2.4.1",
+    "jasmine": "^3.1.0",
     "jquery": "^3.1.0",
     "moment": "^2.14.1",
     "moment-timezone": "^0.5.4",
     "requirejs": "^2.2.0",
     "spectrum-colorpicker": "^1.8.0",
     "telemetryclient-team-services-extension": "*",
-    "ts-promise": "^1.0.0",
-    "vss-web-extension-sdk": "^2.116.1"
+    "ts-promise": "^2.0.0",
+    "vss-web-extension-sdk": "^5.134.0"
   }
 }
