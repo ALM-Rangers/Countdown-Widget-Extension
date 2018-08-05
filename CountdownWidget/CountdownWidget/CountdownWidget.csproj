@@ -19,6 +19,7 @@
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,8 @@
     <Content Include="static\countdown.html" />
     <Content Include="static\countdownconfiguration.html" />
     <Content Include="static\css\app.css" />
+    <Content Include="static\fancy-countdownconfiguration.html" />
+    <Content Include="static\fancy-countdown.html" />
     <Content Include="static\img\Configure-Extension.png" />
     <Content Include="static\img\logo.png" />
     <Content Include="static\img\Preview-Full.png" />
@@ -56,12 +59,13 @@
     <Content Include="tests\moment.js" />
     <Content Include="webpack.config.js" />
     <Content Include="whitesource.config.json" />
-    <TypeScriptCompile Include="src\configuration.ts" />
+    <TypeScriptCompile Include="src\countdownConfiguration.ts" />
     <TypeScriptCompile Include="src\countdownCalculator.ts" />
     <TypeScriptCompile Include="src\CountdownResult.ts" />
     <TypeScriptCompile Include="src\countdownWidget.ts" />
+    <TypeScriptCompile Include="src\fancyCountdownConfiguration.ts" />
     <TypeScriptCompile Include="src\isettings.d.ts" />
-    <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\countdown.ts" />
     <TypeScriptCompile Include="src\telemetryClientSettings.ts" />
     <TypeScriptCompile Include="tests\CountdownCalculatorSpec.ts" />
     <Content Include="Overview.md" />

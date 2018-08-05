@@ -1,0 +1,101 @@
+﻿<!-- ---------------------------------------------------------------------
+// <copyright file="fancy-countdownconfiguration.html">
+//    This code is licensed under the MIT License.
+//    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+//    ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+//    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+//    PARTICULAR PURPOSE AND NONINFRINGEMENT.
+// </copyright>
+// <summary>
+//    This is part of the Countdown widget
+//    from the ALM Rangers. This file contains the configuration pane HTML
+//    layout for the extension + the bootstrap code.
+// </summary>
+//---------------------------------------------------------------------
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="lib/VSS.SDK.min.js"></script>
+    <script src="lib/moment.js"></script>
+    <script src="lib/moment-timezone.js"></script>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/spectrum.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="lib/spectrum.css">
+</head>
+<body>
+    <div class="container">
+        <div class="countdown-config-group" id="countdown-type-picker">
+            <input class="field" type="radio" checked name="countdownType" value="toEndOfSprint" id="toEndOfSprint">
+            <label class="config-label countdown-config-label" for="toEndOfSprint">Count down to the end of the current sprint</label>
+            <br>
+            <input class="field" type="radio" name="countdownType" value="toCustomDateTime" id="toCustomDateTime">
+            <label class="config-label countdown-config-label" for="toCustomDateTime">Count down to a custom date and time</label>
+        </div>
+        <div class="countdown-config-group" id="datepicker-container">
+            <label class="config-label countdown-config-label" for="datetimepicker">End date:</label>
+            <div id="datetime" class="datetimepicker" style="margin-top: -20px;"></div>
+        </div>
+        <div class="countdown-config-label" id="timezonepicker-container">
+            <label class="config-label countdown-config-label">Timezone:</label>
+            <div class="input-wrapper">
+                <select id="timezone"></select>
+            </div>
+        </div>
+        <div class="countdown-config-group">
+            <label class="config-label" for="fgWidth">Foreground width:</label>
+            <div class="input-wrapper width-wrapper">
+                <div id="fgWidth" class="field"></div>
+            </div>
+        </div>
+        <div class="countdown-config-group">
+            <label class="config-label" for="bgWidth">Background width:</label>
+            <div class="input-wrapper width-wrapper">
+                <div id="bgWidth" class="field"></div>
+            </div>
+        </div>
+        <div class="countdown-config-group">
+            <label class="config-label">Days color:</label>
+            <div class="input-wrapper">
+                <input id="days-colorpicker" class="colorpicker-input">
+            </div>
+        </div>
+        <div class="countdown-config-group">
+            <label class="config-label">Hours color:</label>
+            <div class="input-wrapper">
+                <input id="hours-colorpicker" class="colorpicker-input">
+            </div>
+        </div>
+        <div class="countdown-config-group">
+            <label class="config-label">Minutes color:</label>
+            <div class="input-wrapper">
+                <input id="minutes-colorpicker" class="colorpicker-input">
+            </div>
+        </div>
+        <div class="countdown-config-group">
+            <label class="config-label">Seconds color:</label>
+            <div class="input-wrapper">
+                <input id="seconds-colorpicker" class="colorpicker-input">
+            </div>
+        </div>
+        <div style="height: 125px;">
+            &nbsp;
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        VSS.init({
+            explicitNotifyLoaded: true,
+            setupModuleLoader: true,
+            usePlatformScripts: true,
+            usePlatformStyles: true
+        });
+
+        VSS.ready(function () {
+            require(["dist/fancyCountdownConfiguration"], function (fancyConfiguration) { });
+        });
+    </script>
+</body>
+</html>

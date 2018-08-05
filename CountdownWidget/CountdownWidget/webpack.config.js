@@ -4,8 +4,9 @@ var webpack = require("webpack");
 module.exports = {
 	target: "web",
 	entry: {
-		app: "./src/main.ts",
-		dialog: "./src/configuration.ts"
+		countdown: "./src/countdown.ts",
+		countdownConfiguration: "./src/countdownConfiguration.ts",
+		fancyCountdownConfiguration: "./src/fancyCountdownConfiguration.ts"
 	},
 	output: {
 		filename: "[name].js",
