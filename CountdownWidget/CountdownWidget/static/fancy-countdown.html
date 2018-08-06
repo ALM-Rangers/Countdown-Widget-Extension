@@ -25,9 +25,22 @@
     <link rel="stylesheet" type="text/css" href="lib/TimeCircles.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
-<body>
-<div class="widget">
-    <h2 class="title"></h2>
-</div>
+<body class="countdown">
+    <div class="widget">
+        <h2 class="title"></h2>
+    </div>
+
+    <script type="text/javascript">
+        VSS.init(
+            {
+                explicitNotifyLoaded: true,
+                setupModuleLoader: true,
+                usePlatformScripts: true,
+                usePlatformStyles: true
+            });
+        VSS.ready(function () {
+            require(["dist/fancyCountdown"], function (main) { });
+        });
+    </script>
 </body>
 </html>

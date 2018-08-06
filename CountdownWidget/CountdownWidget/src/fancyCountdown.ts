@@ -105,7 +105,7 @@ export class FancyCountdown {
 		$("#dateCountdown").remove();
 		$("h2.title").after("<div id='dateCountdown' data-date='"
 			+ renderValues.endDate.local().format("YYYY-MM-DD HH:mm:ss")
-			+ "' style='width: 95%;'></div>");
+			+ "' style='width: 95%; margin-left: auto; margin-right: auto;'></div>");
 
 		($("#dateCountdown") as any).TimeCircles({
 			animation: "smooth",
