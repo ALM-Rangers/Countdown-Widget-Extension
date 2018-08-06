@@ -6,6 +6,7 @@ module.exports = {
 	entry: {
 		countdown: "./src/countdown.ts",
 		countdownConfiguration: "./src/countdownConfiguration.ts",
+		fancyCountdown: "./src/fancyCountdown.ts",
 		fancyCountdownConfiguration: "./src/fancyCountdownConfiguration.ts"
 	},
 	output: {

@@ -63,6 +63,7 @@
     <TypeScriptCompile Include="src\countdownCalculator.ts" />
     <TypeScriptCompile Include="src\CountdownResult.ts" />
     <TypeScriptCompile Include="src\countdownWidget.ts" />
+    <TypeScriptCompile Include="src\fancyCountdown.ts" />
     <TypeScriptCompile Include="src\fancyCountdownConfiguration.ts" />
     <TypeScriptCompile Include="src\isettings.d.ts" />
     <TypeScriptCompile Include="src\countdown.ts" />
