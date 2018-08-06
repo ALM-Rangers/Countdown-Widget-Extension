@@ -1,7 +1,6 @@
 ﻿/*Tile*/
 .countdown {
     padding: 14px;
-    background-color: #F1F2F2;
 }
 
 .container {
@@ -81,4 +80,18 @@
 
 .spacer-top {
     margin-top: 25px;
+}
+
+/* Specific for fancy countdown */
+.countdown-config-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+#timezonepicker-container {
+    height: 30px;
+}
+
+.width-wrapper {
+    width: 100px;
 }

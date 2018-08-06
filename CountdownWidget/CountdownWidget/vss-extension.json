@@ -1,8 +1,8 @@
 {
   "manifestVersion": 1,
   "id": "CountdownWidget",
-  "version": "0.0.5",
-  "publisher": "DevMikaelKrief",
+  "version": "0.5.20",
+  "publisher": "henrybeenconsultancy",
   "name": "Countdown Widgets",
   "description": "Count down to a configurable moment in time, or down to the end of the current sprint.",
   "public": false,
@@ -114,6 +114,38 @@
         "description": "Configures the Countdown Sprint widget.",
         "uri": "static/countdownconfiguration.html"
       }
+    },
+    {
+      "id": "FancyCountdown",
+      "type": "ms.vss-dashboards-web.widget",
+      "targets": [
+        "ms.vss-dashboards-web.widget-catalog",
+        ".FancyCountdown-Configuration"
+      ],
+      "properties": {
+        "name": "Fancy Countdown",
+        "description": "Dashboardwidget that counts down to a specific date and time.",
+        "previewImageUrl": "static/img/logo.png",
+        "uri": "static/fancy-countdown.html",
+        "isNameConfigurable": true,
+        "supportedSizes": [
+          {
+            "rowSpan": 1,
+            "columnSpan": 3
+          }
+        ],
+        "supportedScopes": [ "project_team" ]
+      }
+    },
+    {
+      "id": "FancyCountdown-Configuration",
+      "type": "ms.vss-dashboards-web.widget-configuration",
+      "targets": [ "ms.vss-dashboards-web.widget-configuration" ],
+      "properties": {
+        "name": "Fancy Countdown Configuration",
+        "description": "Configures Countdown widget",
+        "uri": "static/fancy-countdownconfiguration.html"
+      }
     }
   ],
   "files": [
@@ -127,6 +159,14 @@
     },
     {
       "addressable": true,
+      "path": "static/fancy-countdown.html"
+    },
+    {
+      "addressable": true,
+      "path": "static/fancy-countdownconfiguration.html"
+    },
+    {
+      "addressable": true,
       "path": "static/css"
     },
     {
@@ -136,6 +176,16 @@
     {
       "addressable": true,
       "path": "static/lib"
+    },
+    {
+      "addressable": true,
+      "path": "node_modules/timecircles/inc/TimeCircles.css",
+      "packagePath": "static/lib/TimeCircles.css"
+    },
+    {
+      "addressable": true,
+      "path": "node_modules/timecircles/inc/TimeCircles.js",
+      "packagePath": "static/lib/TimeCircles.js"
     },
     {
       "path": "dist",
