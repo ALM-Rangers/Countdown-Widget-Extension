@@ -135,6 +135,8 @@ export class FancyCountdown {
 				},
 			},
 		});
+
+		VSS.resize();
 	}
 
 	private getBackgroundWidth(backgroundWithName) {
