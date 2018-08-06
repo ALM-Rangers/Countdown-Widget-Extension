@@ -52,6 +52,7 @@
     "requirejs": "^2.2.0",
     "spectrum-colorpicker": "^1.8.0",
     "telemetryclient-team-services-extension": "*",
+    "timecircles": "^1.5.3",
     "ts-promise": "^2.0.0",
     "vss-web-extension-sdk": "^5.134.0"
   }
