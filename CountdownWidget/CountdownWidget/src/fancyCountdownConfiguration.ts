@@ -87,10 +87,13 @@ export class FancyConfiguration {
 	}
 
 	private getSettingsFromControls() {
+		const inputText = this.dateTimeCombo.getInputText();
+		const date = DateUtils.parseDateString(inputText, "F");
+
 		const customSettings = {
 			data: JSON.stringify({
 				backgroundWidth: this.backgroundWidthCombo.getValue(),
-				countdownDate: moment(this.dateTimeCombo.getInputText()).format("YYYY-MM-DD HH:mm"),
+				countdownDate: moment(date).format("YYYY-MM-DD HH:mm"),
 				countdownType: $("input[name=countdownType]:checked").val(),
 				daysColor: ($("#days-colorpicker") as any).spectrum("get").toRgbString(),
 				foregroundWidth: this.foregroundWidthCombo.getValue(),
