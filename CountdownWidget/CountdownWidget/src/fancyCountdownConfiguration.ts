@@ -94,6 +94,7 @@ export class FancyConfiguration {
 			data: JSON.stringify({
 				backgroundWidth: this.backgroundWidthCombo.getValue(),
 				countdownDate: moment(date).format("YYYY-MM-DD HH:mm"),
+
 				countdownType: $("input[name=countdownType]:checked").val(),
 				daysColor: ($("#days-colorpicker") as any).spectrum("get").toRgbString(),
 				foregroundWidth: this.foregroundWidthCombo.getValue(),
