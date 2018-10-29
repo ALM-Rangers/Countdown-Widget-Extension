@@ -31,7 +31,7 @@ export class CountdownCalculator {
 	}
 
 	public getDifference(): countdownResult.CountdownResult {
-		var to = this.to.clone();
+		const to = this.to.clone();
 
 		if (!this.isValid()) {
 			return new countdownResult.CountdownResult(0, countdownResult.Unit.Invalid, this.roundNumber);
