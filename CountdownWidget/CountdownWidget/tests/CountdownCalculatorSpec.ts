@@ -189,6 +189,23 @@ describe("countdown ", () => {
 		});
 });
 
+describe("getDifference method", () => {
+	it('Getting difference twice does not alter result',
+		() => {
+			const dayOfweeks = [0, 1, 2, 3, 6] as any;
+			const from = moment.tz("01-10-2018 00:00", "DD-MM-YYYY H:m", "Europe/Paris");
+			const to = moment.tz("31-10-2018 00:00", "DD-MM-YYYY H:m", "Europe/Paris");
+
+			const calculator = new CountdownCalculator.CountdownCalculator(from, to, true, dayOfweeks);
+
+			const first = calculator.getDifference();
+			const second = calculator.getDifference();
+
+			expect(first.unit).toBe(second.unit);
+			expect(first.value).toBe(second.value);
+		});
+});
+
 describe("diff method ", () => {
 	it("diff from 06-10-2016 14:20 Europe/Paris to 11-10-2016 02:00 Europe/Paris to be 5 days",
 		() => {
