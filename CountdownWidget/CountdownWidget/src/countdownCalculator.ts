@@ -31,12 +31,14 @@ export class CountdownCalculator {
 	}
 
 	public getDifference(): countdownResult.CountdownResult {
+		const to = this.to.clone();
+
 		if (!this.isValid()) {
 			return new countdownResult.CountdownResult(0, countdownResult.Unit.Invalid, this.roundNumber);
 		}
 
 		const diff = (unit: countdownResult.Unit) => {
-			return this.to.diff(this.from, countdownResult.Unit[unit].toLowerCase(), unit === countdownResult.Unit.Days);
+			return to.diff(this.from, countdownResult.Unit[unit].toLowerCase(), unit === countdownResult.Unit.Days);
 		};
 
 		let numberOfExcludedDays = 0;
@@ -45,7 +47,7 @@ export class CountdownCalculator {
 		}
 
 		const test = diff(countdownResult.Unit.Days);
-		this.to.add(-numberOfExcludedDays, countdownResult.Unit[countdownResult.Unit.Days].toLowerCase());
+		to.add(-numberOfExcludedDays, countdownResult.Unit[countdownResult.Unit.Days].toLowerCase());
 		const numberOfDays: number = diff(countdownResult.Unit.Days);
 
 		if (numberOfDays >= 1.0) {
