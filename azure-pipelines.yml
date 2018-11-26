@@ -43,6 +43,8 @@ steps:
     summaryFileLocation: '$(Build.SourcesDirectory)\CountdownWidget\CountdownWidget\coverage\cobertura-coverage.xml'
     reportDirectory: '$(Build.SourcesDirectory)\CountdownWidget\CountdownWidget\coverage-inline\'
 
+- task: dutchworkz.DisplayAllVariables.DisplayAllVariables.DutchWorkzToolsAllVariables@1
+  displayName: 'Show all build variables in build output.'
 
 - task: ms-devlabs.vsts-developer-tools-build-tasks.package-extension-build-task.PackageVSTSExtension@1
   displayName: 'Package Extension: CountdownWidget/CountdownWidget/'
