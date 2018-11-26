@@ -2,6 +2,10 @@ queue:
   name: Hosted
   demands: npm
 
+variables:
+- name: ProductVersion
+  value: '$(ProductMajor).$(ProductMinor)$(Rev:.r)'
+
 steps:
 - task: Npm@1
   displayName: 'Install NPM Dependencies - npm install'
@@ -49,7 +53,7 @@ steps:
     extensionId: CountdownWidget
     extensionTag: Alpha
     extensionName: 'Countdown Widget'
-    extensionVersion: $(Build.BuildNumber)
+    extensionVersion: $(ProductVersion)
     updateTasksVersion: true
     extensionVisibility: private
     extensionPricing: free
