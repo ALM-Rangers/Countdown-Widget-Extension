@@ -6,6 +6,7 @@ variables:
 - name: ProductVersion
   value: '$(ProductMajor).$(ProductMinor)$(Rev:.r)'
 
+name: '$(ProductMajor).$(ProductMinor)$(Rev:.r)'
 steps:
 - task: Npm@1
   displayName: 'Install NPM Dependencies - npm install'
@@ -55,7 +56,7 @@ steps:
     extensionId: CountdownWidget
     extensionTag: Alpha
     extensionName: 'Countdown Widget'
-    extensionVersion: $(ProductVersion)
+    extensionVersion: $(BUILD_BUILDNUMBER)
     updateTasksVersion: true
     extensionVisibility: private
     extensionPricing: free
