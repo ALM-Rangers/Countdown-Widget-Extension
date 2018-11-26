@@ -1,0 +1,60 @@
+queue:
+  name: Hosted
+  demands: npm
+
+steps:
+- task: Npm@1
+  displayName: 'Install NPM Dependencies - npm install'
+  inputs:
+    workingDir: CountdownWidget/CountdownWidget
+    verbose: false
+
+- task: Npm@0
+  displayName: 'Compile extension - npm run build'
+  inputs:
+    cwd: CountdownWidget/CountdownWidget
+    command: run
+    arguments: build
+
+
+- task: Npm@0
+  displayName: 'Run unit tests - npm run tests'
+  inputs:
+    cwd: CountdownWidget/CountdownWidget
+    command: run
+    arguments: test
+
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  inputs:
+    testResultsFiles: '**\reportTests\TEST-*.xml'
+    mergeTestResults: true
+  condition: succeededOrFailed()
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage'
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(Build.SourcesDirectory)\CountdownWidget\CountdownWidget\coverage\cobertura-coverage.xml'
+    reportDirectory: '$(Build.SourcesDirectory)\CountdownWidget\CountdownWidget\coverage-inline\'
+
+
+- task: ms-devlabs.vsts-developer-tools-build-tasks.package-extension-build-task.PackageVSTSExtension@1
+  displayName: 'Package Extension: CountdownWidget/CountdownWidget/'
+  inputs:
+    rootFolder: CountdownWidget/CountdownWidget/
+    outputPath: 'drop\output.vsix'
+    publisherId: 'alm-rangers'
+    extensionId: CountdownWidget
+    extensionTag: Alpha
+    extensionName: 'Countdown Widget'
+    extensionVersion: '$(Build.BuildNumber)'
+    updateTasksVersion: true
+    extensionVisibility: private
+    extensionPricing: free
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(Extension.OutputPath)'
