@@ -56,7 +56,7 @@ steps:
     extensionId: CountdownWidget
     extensionTag: Alpha
     extensionName: 'Countdown Widget'
-    extensionVersion: $(BUILD_BUILDNUMBER)
+    extensionVersion: $(Build.BuildNumber)
     updateTasksVersion: true
     extensionVisibility: private
     extensionPricing: free
