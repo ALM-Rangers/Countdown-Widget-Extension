@@ -2,10 +2,6 @@ queue:
   name: Hosted
   demands: npm
 
-variables:
-- name: ProductVersion
-  value: '$(ProductMajor).$(ProductMinor)$(Rev:.r)'
-
 name: '$(ProductMajor).$(ProductMinor)$(Rev:.r)'
 steps:
 - task: Npm@1
