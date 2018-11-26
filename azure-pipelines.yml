@@ -49,7 +49,7 @@ steps:
     extensionId: CountdownWidget
     extensionTag: Alpha
     extensionName: 'Countdown Widget'
-    extensionVersion: '$(Build.BuildNumber)'
+    extensionVersion: $(Build.BuildNumber)
     updateTasksVersion: true
     extensionVisibility: private
     extensionPricing: free
@@ -57,4 +57,4 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   inputs:
-    PathtoPublish: '$(Extension.OutputPath)'
+    PathtoPublish: $(Extension.OutputPath)
