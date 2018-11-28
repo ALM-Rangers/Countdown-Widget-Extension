@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": "CountdownWidget",
-  "version": "0.5.20",
+  "version": "0.6.3",
   "publisher": "henrybeenconsultancy",
   "name": "Countdown Widgets",
   "description": "Count down to a configurable moment in time, or down to the end of the current sprint.",
@@ -10,7 +10,7 @@
     "default": "static/img/logo.png"
   },
   "categories": [
-    "Plan and track"
+    "Azure Boards"
   ],
   "tags": [
     "work",
