@@ -1,3 +1,7 @@
+## Deprecated ##
+
+This extension has been deprecated as of April 11th 2019, since it has been moved to a new Publisher. For more information on upgrading, please click <a target="_blank" href="https://www.almdevopsrangers.org/upgrading-countdown-widget/">here.</a>
+
 ## Show countdown counters for your team's important events ##
 
 Every team has important dates to remember. Make them visible for your team by adding countdown tiles to your dashboard!
