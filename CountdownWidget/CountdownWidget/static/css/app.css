@@ -82,3 +82,25 @@
 .spacer-top {
     margin-top: 25px;
 }
+
+.deprecation-warning {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #ffbb33;
+}
+
+.warning-icon {
+    width: 32px; 
+    height: 32px; 
+}
+
+.warning-icon-configuration {
+    margin-right: 10px;
+    float: left;
+}
+
+.warning-icon-widget {
+    position: absolute;
+    bottom: 4px;
+    right: 7px;
+}
