@@ -193,7 +193,9 @@ export class Configuration {
 			this.$backgroundColorHoursEnabled.prop("checked", true);
 		}
 
-		this.$backgroundColorHoursThreshold.val(settings.backgroundColorHoursThreshold);
+		if (settings && settings.backgroundColorHoursThreshold) {
+			this.$backgroundColorHoursThreshold.val(settings.backgroundColorHoursThreshold);
+		}
 
 		this.onBackgroundColorHoursChanged();
 	}
